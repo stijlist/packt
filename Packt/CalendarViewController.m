@@ -10,11 +10,14 @@
 #import "CalendarDataSource.h"
 #import "CalendarEvent.h"
 #import "HeaderView.h"
+#import "PKTTaskScheduler.h"
 
 @interface CalendarViewController ()
 
 @property (strong, nonatomic) IBOutlet CalendarDataSource *calendarDataSource;
-
+@property (strong, nonatomic) NSArray *tasks;
+@property (strong, nonatomic) NSArray *openIntervals;
+@property (strong, nonatomic) PKTTaskScheduler *scheduler;
 @end
 
 @implementation CalendarViewController
@@ -38,6 +41,12 @@
             headerView.titleLabel.text = [NSString stringWithFormat:@"%2d:00", indexPath.item % 12 + 1];
         }
     };
+}
+
+- (void)scheduleTasks
+{
+    self.openIntervals = [self.scheduler openTimeIntervalsBetweenEventsInArray:self.calendarDataSource.events];
+    [self.scheduler packTasks:self.tasks intoIntervals:self.openIntervals];
 }
 
 @end

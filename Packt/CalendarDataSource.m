@@ -7,11 +7,8 @@
 //
 
 #import "CalendarDataSource.h"
-#import "SampleCalendarEvent.h"
 #import "PKTEventManager.h"
 @interface CalendarDataSource ()
-
-@property (strong, nonatomic) NSArray *events;
 
 @end
 

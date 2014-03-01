@@ -52,6 +52,7 @@
     return results;
 }
 
+// TODO: remove from this class, moved to PKTTaskScheduler
 // precondition: events are ordered in the correct sequence
 // how to deal with overlapping events?
 - (NSArray *)openTimeIntervalsBetweenEventsInArray:(NSArray *)events

@@ -9,5 +9,7 @@
 #import <Foundation/Foundation.h>
 
 @interface PKTTaskScheduler : NSObject
+- (void)packTasks:(NSArray *)tasks intoIntervals:(NSArray *)intervals;
+- (NSArray *)openTimeIntervalsBetweenEventsInArray:(NSArray *)events;
 
 @end

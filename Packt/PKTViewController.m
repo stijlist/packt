@@ -8,18 +8,16 @@
 
 #import "PKTViewController.h"
 #import "PKTTaskCell.h"
-#import "PKTEventManager.h"
 #import "PKTTask.h"
-#import <EventKit/EventKit.h>
+#import "PKTTaskScheduler.h"
 
 NSString *kCellID = @"cellID";                          // UICollectionViewCell storyboard id
 
 @interface PKTViewController ()
 
 @property NSArray *events;
-@property PKTEventManager *eventManager;
 @property NSMutableArray *tasks;
-
+@property PKTTaskScheduler *scheduler;
 @end
 
 @implementation PKTViewController
@@ -27,20 +25,9 @@ NSString *kCellID = @"cellID";                          // UICollectionViewCell 
 {
     [super viewDidLoad];
     [self.collectionView setAlwaysBounceVertical:YES];
-    self.eventManager = [[PKTEventManager alloc] init];
-    self.events = [self.eventManager eventsForCurrentDay];
     self.tasks = [[NSMutableArray alloc] init];
+    self.scheduler = [[PKTTaskScheduler alloc] init];
     
-    PKTTask *task1 = [[PKTTask alloc] init];
-    [task1 setTitle:@"Task 1"];
-    PKTTask *task2 = [[PKTTask alloc] init];
-    [task2 setTitle:@"Task 2"];
-    PKTTask *task3 = [[PKTTask alloc] init];
-    [task3 setTitle:@"Task 3"];
-    
-    [self.tasks addObject:task1];
-    [self.tasks addObject:task2];
-    [self.tasks addObject:task3];
     
 	// Do any additional setup after loading the view, typically from a nib.
 }
@@ -71,6 +58,7 @@ NSString *kCellID = @"cellID";                          // UICollectionViewCell 
     [self.tasks insertObject:newTask atIndex:0];
     [self.collectionView reloadData];
 }
+
 
 - (void)didReceiveMemoryWarning
 {

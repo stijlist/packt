@@ -15,7 +15,6 @@
 		2016818B18C1C55700093205 /* CalendarEventCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 2016818118C1C55700093205 /* CalendarEventCell.m */; };
 		2016818C18C1C55700093205 /* HeaderView.m in Sources */ = {isa = PBXBuildFile; fileRef = 2016818318C1C55700093205 /* HeaderView.m */; };
 		2016818D18C1C55700093205 /* HeaderView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 2016818418C1C55700093205 /* HeaderView.xib */; };
-		2016818E18C1C55700093205 /* SampleCalendarEvent.m in Sources */ = {isa = PBXBuildFile; fileRef = 2016818718C1C55700093205 /* SampleCalendarEvent.m */; };
 		206FAFF118C17F0A0060903F /* PKTTaskCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 206FAFF018C17F0A0060903F /* PKTTaskCell.m */; };
 		4C880FBE18C15E3D00241954 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4C880FBD18C15E3D00241954 /* Foundation.framework */; };
 		4C880FC018C15E3D00241954 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4C880FBF18C15E3D00241954 /* CoreGraphics.framework */; };
@@ -65,8 +64,6 @@
 		2016818318C1C55700093205 /* HeaderView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HeaderView.m; sourceTree = "<group>"; };
 		2016818418C1C55700093205 /* HeaderView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = HeaderView.xib; sourceTree = "<group>"; };
 		2016818518C1C55700093205 /* CalendarEvent.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CalendarEvent.h; sourceTree = "<group>"; };
-		2016818618C1C55700093205 /* SampleCalendarEvent.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SampleCalendarEvent.h; sourceTree = "<group>"; };
-		2016818718C1C55700093205 /* SampleCalendarEvent.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SampleCalendarEvent.m; sourceTree = "<group>"; };
 		206FAFEF18C17F0A0060903F /* PKTTaskCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = PKTTaskCell.h; path = ../PKTTaskCell.h; sourceTree = "<group>"; };
 		206FAFF018C17F0A0060903F /* PKTTaskCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = PKTTaskCell.m; path = ../PKTTaskCell.m; sourceTree = "<group>"; };
 		4C880FBA18C15E3C00241954 /* Packt.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Packt.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -164,8 +161,6 @@
 				2016818518C1C55700093205 /* CalendarEvent.h */,
 				4C880FFD18C1E5A600241954 /* PKTCalendarEvent.h */,
 				4C880FFE18C1E5A600241954 /* PKTCalendarEvent.m */,
-				2016818618C1C55700093205 /* SampleCalendarEvent.h */,
-				2016818718C1C55700093205 /* SampleCalendarEvent.m */,
 			);
 			name = "Ported In";
 			sourceTree = "<group>";
@@ -362,7 +357,6 @@
 				2016818A18C1C55700093205 /* WeekCalendarLayout.m in Sources */,
 				2016810F18C184AA00093205 /* PKTTaskCollectionLayout.m in Sources */,
 				2016818818C1C55700093205 /* CalendarViewController.m in Sources */,
-				2016818E18C1C55700093205 /* SampleCalendarEvent.m in Sources */,
 				2016818918C1C55700093205 /* CalendarDataSource.m in Sources */,
 				206FAFF118C17F0A0060903F /* PKTTaskCell.m in Sources */,
 			);

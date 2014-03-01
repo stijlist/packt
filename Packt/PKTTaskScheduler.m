@@ -9,6 +9,8 @@
 #import "PKTTaskScheduler.h"
 #import "PKTInterval.h"
 #import "PKTTask.h"
+#import "PKTCalendarEvent.h"
+#import <EventKit/EventKit.h>
 
 @implementation PKTTaskScheduler
 
@@ -26,6 +28,23 @@
             }
         }
     }
+}
+
+// TODO refactor PKTCalendarEvent so that it abstracts away access to its internal EKEvent, remove event.event calls
+- (NSArray *)openTimeIntervalsBetweenEventsInArray:(NSArray *)events
+{
+    NSMutableArray *results = [[NSMutableArray alloc] init];
+    PKTCalendarEvent *lastEvent;
+    for (PKTCalendarEvent *event in events) {
+        if (lastEvent) {
+            PKTInterval *interval = [[PKTInterval alloc] init];
+            interval.startTime = lastEvent.event.endDate;
+            interval.interval = [event.event.startDate timeIntervalSinceDate: lastEvent.event.endDate];
+            [results addObject: interval];
+        }
+        lastEvent = event;
+    }
+    return results;
 }
 
 @end
