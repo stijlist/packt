@@ -8,10 +8,14 @@
 
 #import "PKTViewController.h"
 #import "PKTTaskCell.h"
+#import "PKTEventManager.h"
 
 NSString *kCellID = @"cellID";                          // UICollectionViewCell storyboard id
 
 @interface PKTViewController ()
+
+@property NSArray *events;
+@property PKTEventManager *eventManager;
 
 @end
 
@@ -20,14 +24,15 @@ NSString *kCellID = @"cellID";                          // UICollectionViewCell 
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-    UICollectionViewFlowLayout *flow = (UICollectionViewFlowLayout*) self.collectionViewLayout;
-    flow.sectionInset = UIEdgeInsetsMake(0, 0, 0, 0);
+    self.eventManager = [[PKTEventManager alloc] init];
+    self.events = [self.eventManager eventsForCurrentDay];
 	// Do any additional setup after loading the view, typically from a nib.
 }
 
 - (NSInteger)collectionView:(UICollectionView *)view numberOfItemsInSection:(NSInteger)section;
 {
-    return 32;
+    NSLog(@"%d", [self.events count]);
+    return [self.events count];
 }
 
 - (UICollectionViewCell *)collectionView:(UICollectionView *)cv cellForItemAtIndexPath:(NSIndexPath *)indexPath;
@@ -38,7 +43,8 @@ NSString *kCellID = @"cellID";                          // UICollectionViewCell 
     // make the cell's title the actual NSIndexPath value
     cell.title.text = [NSString stringWithFormat:@"Item %ld", (long)indexPath.row];
     
-    // load the image for this cell
+    cell.timeInterval.text = @"30";
+    
     return cell;
 }
 
