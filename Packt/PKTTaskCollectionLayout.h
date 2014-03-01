@@ -8,6 +8,6 @@
 
 #import <UIKit/UIKit.h>
 
-@interface PKTTaskCollectionLayout : UICollectionViewLayout
-
+@interface PKTTaskCollectionLayout : UICollectionViewFlowLayout
+@property UIDynamicAnimator *dynamicAnimator;
 @end

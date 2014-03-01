@@ -7,7 +7,9 @@
 //
 
 #import "PKTEventManager.h"
+
 #import <EventKit/EventKit.h>
+#import "PKTCalendarEvent.h"
 #import "PKTInterval.h"
 
 @implementation PKTEventManager
@@ -44,7 +46,7 @@
                                                                  endDate:todayEnd
                                                                calendars:@[calendar]];
     [store enumerateEventsMatchingPredicate:todayPredicate usingBlock:^void(EKEvent *event, BOOL *stop) {
-        [results addObject: event];
+        [results addObject: [[PKTCalendarEvent alloc] initWithEKEvent:event]];
     }];
 
     return results;

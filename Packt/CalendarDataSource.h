@@ -11,7 +11,7 @@
 #import "CalendarEventCell.h"
 #import "HeaderView.h"
 
-typedef void (^ConfigureCellBlock)(CalendarEventCell *cell, NSIndexPath *indexPath, id<CalendarEvent> event);
+typedef void (^ConfigureCellBlock)(CalendarEventCell *cell, NSIndexPath *indexPath, id<CalendarEvent>);
 typedef void (^ConfigureHeaderViewBlock)(HeaderView *headerView, NSString *kind, NSIndexPath *indexPath);
 
 @interface CalendarDataSource : NSObject <UICollectionViewDataSource>

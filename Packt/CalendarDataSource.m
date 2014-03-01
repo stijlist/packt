@@ -8,15 +8,19 @@
 
 #import "CalendarDataSource.h"
 #import "SampleCalendarEvent.h"
-
+#import "PKTEventManager.h"
 @interface CalendarDataSource ()
 
-@property (strong, nonatomic) NSMutableArray *events;
+@property (strong, nonatomic) NSArray *events;
 
 @end
 
 @implementation CalendarDataSource
-
+- (void)getUserEventsFromCalendar
+{
+    PKTEventManager *mgr = [[PKTEventManager alloc] init];
+    self.events = [mgr eventsForCurrentDay];
+}
 - (void)awakeFromNib
 {
     _events = [[NSMutableArray alloc] init];
@@ -25,15 +29,7 @@
     // In a real app, these should be retrieved from the calendar data store (EventKit.framework)
     // We use a very simple data format for our events. In a real calendar app, event times should be
     // represented with NSDate objects and correct calendrical date calculcations should be used.
-    [self generateSampleData];
-}
-
-- (void)generateSampleData
-{
-    for (NSUInteger idx = 0; idx < 20; idx++) {
-        SampleCalendarEvent *event = [SampleCalendarEvent randomEvent];
-        [self.events addObject:event];
-    }
+    [self getUserEventsFromCalendar];
 }
 
 #pragma mark - CalendarDataSource
@@ -50,7 +46,7 @@
 {
     NSMutableArray *indexPaths = [NSMutableArray array];
     [self.events enumerateObjectsUsingBlock:^(id event, NSUInteger idx, BOOL *stop) {
-        if ([event day] >= minDayIndex && [event day] <= maxDayIndex && [event startHour] >= minStartHour && [event startHour] <= maxStartHour)
+        if ([event startHour] >= minStartHour && [event startHour] <= maxStartHour)
         {
             NSIndexPath *indexPath = [NSIndexPath indexPathForItem:idx inSection:0];
             [indexPaths addObject:indexPath];

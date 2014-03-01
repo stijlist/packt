@@ -11,7 +11,7 @@
 @implementation SampleCalendarEvent
 
 @synthesize title = _title;
-@synthesize day = _day;
+//@synthesize day = _day;
 @synthesize startHour = _startHour;
 @synthesize durationInHours = _durationInHours;
 
@@ -37,7 +37,7 @@
     self = [super init];
     if (self != nil) {
         _title = [title copy];
-        _day = day;
+//        _day = day;
         _startHour = startHour;
         _durationInHours = durationInHours;
     }
@@ -46,7 +46,7 @@
 
 - (NSString *)description
 {
-    return [NSString stringWithFormat:@"%@: Day %d - Hour %d - Duration %d", self.title, self.day, self.startHour, self.durationInHours];
+    return [NSString stringWithFormat:@"%@: Hour %d - Duration %d", self.title, self.startHour, self.durationInHours];
 }
 
 @end
