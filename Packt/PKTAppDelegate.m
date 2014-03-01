@@ -7,12 +7,16 @@
 //
 
 #import "PKTAppDelegate.h"
+#import "PKTEventManager.h"
 
 @implementation PKTAppDelegate
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 {
     // Override point for customization after application launch.
+    PKTEventManager *em = [[PKTEventManager alloc] init];
+    NSArray *res = [em eventsForCurrentDay];
+    NSLog(@"%@", res);
     return YES;
 }
 							
