@@ -14,7 +14,6 @@ static const NSUInteger DaysPerWeek = 7;
 static const NSUInteger HoursPerDay = 24;
 static const CGFloat HorizontalSpacing = 10;
 static const CGFloat HeightPerHour = 50;
-static const CGFloat DayHeaderHeight = 40;
 static const CGFloat HourHeaderWidth = 100;
 
 @interface WeekCalendarLayout ()
@@ -31,7 +30,7 @@ static const CGFloat HourHeaderWidth = 100;
     CGFloat contentWidth = self.collectionView.bounds.size.width;
 
     // Scroll vertically to display a full day
-    CGFloat contentHeight = DayHeaderHeight + (HeightPerHour * HoursPerDay);
+    CGFloat contentHeight = (HeightPerHour * HoursPerDay);
     
     CGSize contentSize = CGSizeMake(contentWidth, contentHeight);
     return contentSize;
@@ -72,7 +71,7 @@ static const CGFloat HourHeaderWidth = 100;
     
     CGFloat totalWidth = [self collectionViewContentSize].width;
     if ([kind isEqualToString:@"HourHeaderView"]) {
-        attributes.frame = CGRectMake(0, DayHeaderHeight + HeightPerHour * indexPath.item, totalWidth, HeightPerHour);
+        attributes.frame = CGRectMake(0, HeightPerHour * indexPath.item, totalWidth, HeightPerHour);
         attributes.zIndex = -10;
     }
     return attributes;
@@ -109,7 +108,7 @@ static const CGFloat HourHeaderWidth = 100;
 
 - (NSInteger)hourIndexFromYCoordinate:(CGFloat)yPosition
 {
-    NSInteger hourIndex = MAX((NSInteger)0, (NSInteger)((yPosition - DayHeaderHeight) / HeightPerHour));
+    NSInteger hourIndex = MAX((NSInteger)0, (NSInteger)((yPosition) / HeightPerHour));
     return hourIndex;
 }
 
@@ -137,7 +136,7 @@ static const CGFloat HourHeaderWidth = 100;
 
     CGRect frame = CGRectZero;
     frame.origin.x = HourHeaderWidth;
-    frame.origin.y = DayHeaderHeight + HeightPerHour * event.startHour;
+    frame.origin.y = HeightPerHour * event.startHour;
     frame.size.width = widthPerDay;
     frame.size.height = event.durationInHours * HeightPerHour;
     
