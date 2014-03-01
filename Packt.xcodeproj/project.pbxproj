@@ -35,6 +35,7 @@
 		4C880FF918C1840400241954 /* PKTTaskScheduler.m in Sources */ = {isa = PBXBuildFile; fileRef = 4C880FF818C1840400241954 /* PKTTaskScheduler.m */; };
 		4C880FFC18C1885B00241954 /* PKTInterval.m in Sources */ = {isa = PBXBuildFile; fileRef = 4C880FFB18C1885B00241954 /* PKTInterval.m */; };
 		4C880FFF18C1E5A600241954 /* PKTCalendarEvent.m in Sources */ = {isa = PBXBuildFile; fileRef = 4C880FFE18C1E5A600241954 /* PKTCalendarEvent.m */; };
+		4C88100218C20E9200241954 /* PKTScheduledTask.m in Sources */ = {isa = PBXBuildFile; fileRef = 4C88100118C20E9200241954 /* PKTScheduledTask.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -94,6 +95,8 @@
 		4C880FFB18C1885B00241954 /* PKTInterval.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PKTInterval.m; sourceTree = "<group>"; };
 		4C880FFD18C1E5A600241954 /* PKTCalendarEvent.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PKTCalendarEvent.h; sourceTree = "<group>"; };
 		4C880FFE18C1E5A600241954 /* PKTCalendarEvent.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PKTCalendarEvent.m; sourceTree = "<group>"; };
+		4C88100018C20E9200241954 /* PKTScheduledTask.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PKTScheduledTask.h; sourceTree = "<group>"; };
+		4C88100118C20E9200241954 /* PKTScheduledTask.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PKTScheduledTask.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -159,6 +162,8 @@
 				2016818318C1C55700093205 /* HeaderView.m */,
 				2016818418C1C55700093205 /* HeaderView.xib */,
 				2016818518C1C55700093205 /* CalendarEvent.h */,
+				4C88100018C20E9200241954 /* PKTScheduledTask.h */,
+				4C88100118C20E9200241954 /* PKTScheduledTask.m */,
 				4C880FFD18C1E5A600241954 /* PKTCalendarEvent.h */,
 				4C880FFE18C1E5A600241954 /* PKTCalendarEvent.m */,
 			);
@@ -344,6 +349,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				4C88100218C20E9200241954 /* PKTScheduledTask.m in Sources */,
 				4C880FFC18C1885B00241954 /* PKTInterval.m in Sources */,
 				2016811218C1A1A100093205 /* PKTTask.m in Sources */,
 				4C880FF418C1669F00241954 /* PKTEventManager.m in Sources */,

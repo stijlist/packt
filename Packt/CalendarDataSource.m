@@ -8,20 +8,36 @@
 
 #import "CalendarDataSource.h"
 #import "PKTEventManager.h"
+#import "PKTTaskScheduler.h"
+#import "PKTScheduledTask.h"
+#import "PKTInterval.h"
+#import "PKTTask.h"
+
 @interface CalendarDataSource ()
+@property (strong, nonatomic) NSMutableArray *events;
+@property (strong, nonatomic) NSArray *openIntervals;
+@property (strong, nonatomic) PKTTaskScheduler *scheduler;
 
 @end
 
 @implementation CalendarDataSource
+
+- (void)scheduleTasks:(NSArray *)tasks
+{
+    self.openIntervals = [self.scheduler openTimeIntervalsBetweenEventsInArray:self.events];
+    [self.events addObjectsFromArray:[self.scheduler packTasks:tasks intoIntervals:self.openIntervals]];
+}
+
 - (void)getUserEventsFromCalendar
 {
     PKTEventManager *mgr = [[PKTEventManager alloc] init];
-    self.events = [mgr eventsForCurrentDay];
+    self.events = [[mgr eventsForCurrentDay] mutableCopy];
 }
+
 - (void)awakeFromNib
 {
     _events = [[NSMutableArray alloc] init];
-    
+    _scheduler = [[PKTTaskScheduler alloc] init];
     // Prepare some example events
     // In a real app, these should be retrieved from the calendar data store (EventKit.framework)
     // We use a very simple data format for our events. In a real calendar app, event times should be

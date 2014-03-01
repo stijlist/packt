@@ -9,13 +9,15 @@
 #import "PKTTaskScheduler.h"
 #import "PKTInterval.h"
 #import "PKTTask.h"
+#import "PKTScheduledTask.h"
 #import "PKTCalendarEvent.h"
 #import <EventKit/EventKit.h>
 
 @implementation PKTTaskScheduler
 
-- (void)packTasks:(NSArray *)tasks intoIntervals:(NSArray *)intervals
+- (NSArray *)packTasks:(NSArray *)tasks intoIntervals:(NSArray *)intervals
 {
+    NSMutableArray *results = [[NSMutableArray alloc] init];
     // implementation of first fit decreasing bin packing algorithm
     // sort tasks by estimated time interval required
     NSArray *sortedTasks = [tasks sortedArrayUsingSelector:NSSelectorFromString(@"interval")];
@@ -25,9 +27,13 @@
             // if the task can be scheduled, schedule and stop searching
             if([interval scheduleTask:task]) {
                 break;
+                PKTScheduledTask *scheduledTask = [[PKTScheduledTask alloc] init];
+                [results addObject:[scheduledTask initWithStartDate:interval.startTime andTimeInterval:interval.interval]];
             }
         }
     }
+    return results;
+    
 }
 
 // TODO refactor PKTCalendarEvent so that it abstracts away access to its internal EKEvent, remove event.event calls

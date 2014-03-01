@@ -15,7 +15,6 @@ typedef void (^ConfigureCellBlock)(CalendarEventCell *cell, NSIndexPath *indexPa
 typedef void (^ConfigureHeaderViewBlock)(HeaderView *headerView, NSString *kind, NSIndexPath *indexPath);
 
 @interface CalendarDataSource : NSObject <UICollectionViewDataSource>
-@property (strong, nonatomic) NSArray *events;
 
 @property (copy, nonatomic) ConfigureCellBlock configureCellBlock;
 @property (copy, nonatomic) ConfigureHeaderViewBlock configureHeaderViewBlock;
