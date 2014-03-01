@@ -10,4 +10,6 @@
 
 @interface PKTEventManager : NSObject
 - (NSArray *)eventsForCurrentDay;
+- (NSArray *)openTimeIntervalsBetweenEventsInArray:(NSArray *)events;
+
 @end

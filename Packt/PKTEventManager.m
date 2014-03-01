@@ -43,5 +43,19 @@
     
     return results;
 }
+// precondition: events are ordered in the correct sequence
+// how to deal with overlapping events?
+- (NSArray *)openTimeIntervalsBetweenEventsInArray:(NSArray *)events
+{
+    NSMutableArray *results = [[NSMutableArray alloc] init];
+    EKEvent *lastEvent;
+    for (EKEvent *event in events) {
+        if (lastEvent) {
+            [results addObject:[NSNumber numberWithDouble:[event.startDate timeIntervalSinceDate: lastEvent.endDate]]];
+        }
+        lastEvent = event;
+    }
+    return results;
+}
 
 @end
