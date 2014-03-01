@@ -107,6 +107,9 @@
                                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                             <fontDescription key="fontDescription" name="AvenirNext-Medium" family="Avenir Next" pointSize="22"/>
                                             <textInputTraits key="textInputTraits" keyboardType="numberPad" returnKeyType="done"/>
+                                            <connections>
+                                                <action selector="doneEditing:" destination="cbF-Fu-s6B" eventType="editingDidEndOnExit" id="x0j-BM-KRf"/>
+                                            </connections>
                                         </textField>
                                     </subviews>
                                     <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
@@ -115,8 +118,8 @@
                                 <gestureRecognizers/>
                                 <size key="customSize" width="320" height="50"/>
                                 <connections>
-                                    <outlet property="timeInterval" destination="lOt-gG-xzT" id="r5v-n6-7qI"/>
-                                    <outlet property="title" destination="j9p-XI-1xo" id="9fm-KQ-kFM"/>
+                                    <outlet property="timeInterval" destination="lOt-gG-xzT" id="g3N-Xw-4vN"/>
+                                    <outlet property="title" destination="j9p-XI-1xo" id="oVl-Vq-9pm"/>
                                     <outletCollection property="gestureRecognizers" destination="CnG-k4-nkk" appends="YES" id="naC-n5-HiY"/>
                                     <outletCollection property="gestureRecognizers" destination="CnG-k4-nkk" appends="YES" id="8he-y5-IJT"/>
                                 </connections>

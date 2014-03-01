@@ -15,9 +15,9 @@ NSString *kCellID = @"cellID";                          // UICollectionViewCell 
 
 @interface PKTViewController ()
 
-@property NSArray *events;
 @property NSMutableArray *tasks;
 @property PKTTaskScheduler *scheduler;
+
 @end
 
 @implementation PKTViewController
@@ -29,12 +29,10 @@ NSString *kCellID = @"cellID";                          // UICollectionViewCell 
 - (void)viewDidLoad
 {
     [super viewDidLoad];
+    // Do any additional setup after loading the view, typically from a nib.
     [self.collectionView setAlwaysBounceVertical:YES];
     self.tasks = [[NSMutableArray alloc] init];
     self.scheduler = [[PKTTaskScheduler alloc] init];
-    
-    
-	// Do any additional setup after loading the view, typically from a nib.
 }
 
 - (UICollectionViewCell *)collectionView:(UICollectionView *)cv cellForItemAtIndexPath:(NSIndexPath *)indexPath;
@@ -42,8 +40,8 @@ NSString *kCellID = @"cellID";                          // UICollectionViewCell 
     PKTTaskCell *cell = [cv dequeueReusableCellWithReuseIdentifier:kCellID forIndexPath:indexPath];
     PKTTask *taskAtIndex = [self.tasks objectAtIndex:indexPath.row];
     
-    cell.title.text = [taskAtIndex title];
-    cell.timeInterval.text = [[NSNumber numberWithUnsignedInt:[taskAtIndex length]] stringValue];
+    cell.title.text = taskAtIndex.title;
+    cell.timeInterval.text = [[NSNumber numberWithUnsignedInt:taskAtIndex.length] stringValue];
     
     return cell;
 }
@@ -54,6 +52,14 @@ NSString *kCellID = @"cellID";                          // UICollectionViewCell 
 
 - (IBAction)doneEditing:(id)sender {
     NSLog(@"Done editing");
+    UITextField *senderTextField = (UITextField *) sender;
+    PKTTaskCell *taskCell = (PKTTaskCell *)[[senderTextField superview] superview];
+    
+    NSIndexPath *indexPath = [self.collectionView indexPathForCell:taskCell];
+    PKTTask *task = (PKTTask*)[self.tasks objectAtIndex:indexPath.row];
+    
+    task.title = [taskCell title].text;
+    task.length = [[taskCell timeInterval].text integerValue];
 }
 
 - (IBAction)createNewTaskButtonTouched:(id)sender {
