@@ -31,7 +31,13 @@ NSString *kCellID = @"cellID";                          // UICollectionViewCell 
     [super viewDidLoad];
     // Do any additional setup after loading the view, typically from a nib.
     [self.collectionView setAlwaysBounceVertical:YES];
-    self.tasks = [[NSMutableArray alloc] init];
+    NSArray *paths = NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES);
+    NSString *documentsDirectory = [paths objectAtIndex:0];
+    NSString *appFile = [documentsDirectory stringByAppendingPathComponent:@"packtfile"];
+    
+
+    self.tasks = [NSKeyedUnarchiver unarchiveObjectWithFile:appFile];
+;
     self.scheduler = [[PKTTaskScheduler alloc] init];
 }
 
@@ -80,11 +86,25 @@ NSString *kCellID = @"cellID";                          // UICollectionViewCell 
     [[(PKTTaskCell *)[self.collectionView cellForItemAtIndexPath:indexPath] title] becomeFirstResponder];
 }
 
+- (void)viewWillDisappear:(BOOL)animated
+{
+    NSArray *paths = NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES);
+    NSString *documentsDirectory = [paths objectAtIndex:0];
+    NSString *appFile = [documentsDirectory stringByAppendingPathComponent:@"packtfile"];
+
+    [NSKeyedArchiver archiveRootObject:self.tasks toFile:appFile];
+    
+}
 
 - (void)didReceiveMemoryWarning
 {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
+    NSArray *paths = NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES);
+    NSString *documentsDirectory = [paths objectAtIndex:0];
+    NSString *appFile = [documentsDirectory stringByAppendingPathComponent:@"packtfile"];
+    
+    [NSKeyedArchiver archiveRootObject:self.tasks toFile:appFile];
 }
 
 

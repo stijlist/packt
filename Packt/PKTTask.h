@@ -8,7 +8,7 @@
 
 #import <Foundation/Foundation.h>
 
-@interface PKTTask : NSObject
+@interface PKTTask : NSObject <NSCoding>
 
 @property NSString *title;
 @property NSUInteger length;
