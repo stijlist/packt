@@ -60,6 +60,12 @@ NSString *kCellID = @"cellID";                          // UICollectionViewCell 
     
     task.title = [taskCell title].text;
     task.length = [[taskCell timeInterval].text integerValue];
+    
+    if([[taskCell title].text length] == 0) {
+        NSArray *indexPaths = [NSArray arrayWithObject:[self.collectionView indexPathForCell:taskCell]];
+        [self.tasks removeObjectAtIndex:0];
+        [self.collectionView deleteItemsAtIndexPaths:indexPaths];
+    }
 }
 
 - (IBAction)createNewTaskButtonTouched:(id)sender {
@@ -67,10 +73,11 @@ NSString *kCellID = @"cellID";                          // UICollectionViewCell 
     PKTTask *newTask = [[PKTTask alloc] init];
     [self.tasks insertObject:newTask atIndex:0];
     
-    //[self.collectionView reloadData];
     NSIndexPath *indexPath = [NSIndexPath indexPathForItem:0 inSection:0];
     NSArray *indexPaths = [NSArray arrayWithObject:indexPath];
     [self.collectionView insertItemsAtIndexPaths:indexPaths];
+    //This is probably not the right place for this.
+    [[(PKTTaskCell *)[self.collectionView cellForItemAtIndexPath:indexPath] title] becomeFirstResponder];
 }
 
 
