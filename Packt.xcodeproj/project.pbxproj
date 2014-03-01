@@ -25,6 +25,8 @@
 		4C880FE918C15E3D00241954 /* PacktTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 4C880FE818C15E3D00241954 /* PacktTests.m */; };
 		4C880FF418C1669F00241954 /* PKTEventManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 4C880FF318C1669F00241954 /* PKTEventManager.m */; };
 		4C880FF618C16D5300241954 /* EventKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4C880FF518C16D5300241954 /* EventKit.framework */; };
+		4C880FF918C1840400241954 /* PKTTaskScheduler.m in Sources */ = {isa = PBXBuildFile; fileRef = 4C880FF818C1840400241954 /* PKTTaskScheduler.m */; };
+		4C880FFC18C1885B00241954 /* PKTInterval.m in Sources */ = {isa = PBXBuildFile; fileRef = 4C880FFB18C1885B00241954 /* PKTInterval.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -64,6 +66,10 @@
 		4C880FF218C1669F00241954 /* PKTEventManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PKTEventManager.h; sourceTree = "<group>"; };
 		4C880FF318C1669F00241954 /* PKTEventManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PKTEventManager.m; sourceTree = "<group>"; };
 		4C880FF518C16D5300241954 /* EventKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = EventKit.framework; path = System/Library/Frameworks/EventKit.framework; sourceTree = SDKROOT; };
+		4C880FF718C1840400241954 /* PKTTaskScheduler.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PKTTaskScheduler.h; sourceTree = "<group>"; };
+		4C880FF818C1840400241954 /* PKTTaskScheduler.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PKTTaskScheduler.m; sourceTree = "<group>"; };
+		4C880FFA18C1885B00241954 /* PKTInterval.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PKTInterval.h; sourceTree = "<group>"; };
+		4C880FFB18C1885B00241954 /* PKTInterval.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PKTInterval.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -131,6 +137,10 @@
 				4C880FCD18C15E3D00241954 /* PKTAppDelegate.m */,
 				4C880FF218C1669F00241954 /* PKTEventManager.h */,
 				4C880FF318C1669F00241954 /* PKTEventManager.m */,
+				4C880FFA18C1885B00241954 /* PKTInterval.h */,
+				4C880FFB18C1885B00241954 /* PKTInterval.m */,
+				4C880FF718C1840400241954 /* PKTTaskScheduler.h */,
+				4C880FF818C1840400241954 /* PKTTaskScheduler.m */,
 				4C880FCF18C15E3D00241954 /* Main.storyboard */,
 				4C880FD218C15E3D00241954 /* PKTViewController.h */,
 				4C880FD318C15E3D00241954 /* PKTViewController.m */,
@@ -269,8 +279,10 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				4C880FFC18C1885B00241954 /* PKTInterval.m in Sources */,
 				4C880FF418C1669F00241954 /* PKTEventManager.m in Sources */,
 				4C880FD418C15E3D00241954 /* PKTViewController.m in Sources */,
+				4C880FF918C1840400241954 /* PKTTaskScheduler.m in Sources */,
 				4C880FCE18C15E3D00241954 /* PKTAppDelegate.m in Sources */,
 				4C880FCA18C15E3D00241954 /* main.m in Sources */,
 				2016810F18C184AA00093205 /* PKTTaskCollectionLayout.m in Sources */,
