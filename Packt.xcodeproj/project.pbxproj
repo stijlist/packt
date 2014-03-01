@@ -35,6 +35,7 @@
 		4C880FF618C16D5300241954 /* EventKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4C880FF518C16D5300241954 /* EventKit.framework */; };
 		4C880FF918C1840400241954 /* PKTTaskScheduler.m in Sources */ = {isa = PBXBuildFile; fileRef = 4C880FF818C1840400241954 /* PKTTaskScheduler.m */; };
 		4C880FFC18C1885B00241954 /* PKTInterval.m in Sources */ = {isa = PBXBuildFile; fileRef = 4C880FFB18C1885B00241954 /* PKTInterval.m */; };
+		4C880FFF18C1E5A600241954 /* PKTCalendarEvent.m in Sources */ = {isa = PBXBuildFile; fileRef = 4C880FFE18C1E5A600241954 /* PKTCalendarEvent.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -94,6 +95,8 @@
 		4C880FF818C1840400241954 /* PKTTaskScheduler.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PKTTaskScheduler.m; sourceTree = "<group>"; };
 		4C880FFA18C1885B00241954 /* PKTInterval.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PKTInterval.h; sourceTree = "<group>"; };
 		4C880FFB18C1885B00241954 /* PKTInterval.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PKTInterval.m; sourceTree = "<group>"; };
+		4C880FFD18C1E5A600241954 /* PKTCalendarEvent.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PKTCalendarEvent.h; sourceTree = "<group>"; };
+		4C880FFE18C1E5A600241954 /* PKTCalendarEvent.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PKTCalendarEvent.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -159,6 +162,8 @@
 				2016818318C1C55700093205 /* HeaderView.m */,
 				2016818418C1C55700093205 /* HeaderView.xib */,
 				2016818518C1C55700093205 /* CalendarEvent.h */,
+				4C880FFD18C1E5A600241954 /* PKTCalendarEvent.h */,
+				4C880FFE18C1E5A600241954 /* PKTCalendarEvent.m */,
 				2016818618C1C55700093205 /* SampleCalendarEvent.h */,
 				2016818718C1C55700093205 /* SampleCalendarEvent.m */,
 			);
@@ -352,6 +357,7 @@
 				4C880FCE18C15E3D00241954 /* PKTAppDelegate.m in Sources */,
 				2016818B18C1C55700093205 /* CalendarEventCell.m in Sources */,
 				2016818C18C1C55700093205 /* HeaderView.m in Sources */,
+				4C880FFF18C1E5A600241954 /* PKTCalendarEvent.m in Sources */,
 				4C880FCA18C15E3D00241954 /* main.m in Sources */,
 				2016818A18C1C55700093205 /* WeekCalendarLayout.m in Sources */,
 				2016810F18C184AA00093205 /* PKTTaskCollectionLayout.m in Sources */,

@@ -23,7 +23,6 @@ NSString *kCellID = @"cellID";                          // UICollectionViewCell 
 @end
 
 @implementation PKTViewController
-
 - (void)viewDidLoad
 {
     [super viewDidLoad];

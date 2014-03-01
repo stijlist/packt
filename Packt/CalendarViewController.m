@@ -8,6 +8,7 @@
 
 #import "CalendarViewController.h"
 #import "CalendarDataSource.h"
+#import "CalendarEvent.h"
 #import "HeaderView.h"
 
 @interface CalendarViewController ()

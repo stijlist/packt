@@ -8,6 +8,7 @@
 
 #import "WeekCalendarLayout.h"
 #import "CalendarDataSource.h"
+#import "CalendarEvent.h"
 
 static const NSUInteger DaysPerWeek = 7;
 static const NSUInteger HoursPerDay = 24;
@@ -135,7 +136,7 @@ static const CGFloat HourHeaderWidth = 100;
     CGFloat widthPerDay = totalWidth;
 
     CGRect frame = CGRectZero;
-    frame.origin.x = HourHeaderWidth + widthPerDay * event.day;
+    frame.origin.x = HourHeaderWidth;
     frame.origin.y = DayHeaderHeight + HeightPerHour * event.startHour;
     frame.size.width = widthPerDay;
     frame.size.height = event.durationInHours * HeightPerHour;
