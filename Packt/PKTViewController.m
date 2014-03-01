@@ -80,6 +80,14 @@ NSString *kCellID = @"cellID";                          // UICollectionViewCell 
     [[(PKTTaskCell *)[self.collectionView cellForItemAtIndexPath:indexPath] title] becomeFirstResponder];
 }
 
+- (IBAction)pannedOnTaskList:(id)sender {
+    NSLog(@"Panned on the list");
+}
+
+- (IBAction)swipedOnTask:(id)sender {
+    //STUB: Do something when the task gets swiped
+    NSLog(@"Swiped on the task");
+}
 
 - (void)didReceiveMemoryWarning
 {
