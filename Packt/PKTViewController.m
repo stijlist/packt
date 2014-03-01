@@ -57,7 +57,7 @@ NSString *kCellID = @"cellID";                          // UICollectionViewCell 
     PKTTask *taskAtIndex = [self.tasks objectAtIndex:indexPath.row];
     
     cell.title.text = [taskAtIndex title];
-    cell.timeInterval.text = @"30";
+    cell.timeInterval.text = [[NSNumber numberWithUnsignedInt:[taskAtIndex length]] stringValue];
     
     return cell;
 }
