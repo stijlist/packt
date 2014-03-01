@@ -7,8 +7,12 @@
 //
 
 #import <Foundation/Foundation.h>
+#import "PKTTask.h"
 
 @interface PKTInterval : NSObject
 @property NSTimeInterval interval;
+@property double remainingTime;
 @property NSDate *startTime;
+@property NSArray *tasksScheduled;
+- (BOOL)scheduleTask:(PKTTask *) task;
 @end

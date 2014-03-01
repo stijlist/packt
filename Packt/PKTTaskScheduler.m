@@ -8,28 +8,24 @@
 
 #import "PKTTaskScheduler.h"
 #import "PKTInterval.h"
+#import "PKTTask.h"
 
 @implementation PKTTaskScheduler
 
-- (NSArray *) firstFitDecreasingPackingOfTasks:(NSArray *)tasks intoIntervals:(NSArray *)intervals
+- (void)packTasks:(NSArray *)tasks intoIntervals:(NSArray *)intervals
 {
-    // sort tasks into decreasing order
+    // implementation of first fit decreasing bin packing algorithm
+    // sort tasks by estimated time interval required
     NSArray *sortedTasks = [tasks sortedArrayUsingSelector:NSSelectorFromString(@"interval")];
-    NSDictionary *intervalsToRemainingTime = [self doubleKeyedDictionaryFromIntervalArray:intervals];
-    for(PKTTask *task in tasks.reverseObjectEnumerator) {
+    
+    for(PKTTask *task in sortedTasks.reverseObjectEnumerator) {
         for (PKTInterval *interval in intervals) {
-            // attempt to place task in interval
-            if()
+            // if the task can be scheduled, schedule and stop searching
+            if([interval scheduleTask:task]) {
+                break;
+            }
         }
     }
 }
 
-- (NSDictionary *) doubleKeyedDictionaryFromIntervalArray:(NSArray *)array
-{
-    NSMutableDictionary *mutableDictionary = [[NSMutableDictionary alloc] init];
-    for (PKTInterval *intervalInstance in array)
-        [mutableDictionary setObject:[NSNumber numberWithDouble:[intervalInstance interval]]
-                              forKey: intervalInstance];
-    return (NSDictionary *)mutableDictionary;
-}
 @end
