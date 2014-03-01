@@ -8,6 +8,7 @@
 
 #import "PKTEventManager.h"
 #import <EventKit/EventKit.h>
+#import "PKTInterval.h"
 
 @implementation PKTEventManager
 - (NSArray *)eventsForCurrentDay
@@ -43,6 +44,7 @@
     
     return results;
 }
+
 // precondition: events are ordered in the correct sequence
 // how to deal with overlapping events?
 - (NSArray *)openTimeIntervalsBetweenEventsInArray:(NSArray *)events
@@ -51,11 +53,13 @@
     EKEvent *lastEvent;
     for (EKEvent *event in events) {
         if (lastEvent) {
-            [results addObject:[NSNumber numberWithDouble:[event.startDate timeIntervalSinceDate: lastEvent.endDate]]];
+            PKTInterval *interval = [[PKTInterval alloc] init];
+            interval.startTime = lastEvent.endDate;
+            interval.interval = [event.startDate timeIntervalSinceDate: lastEvent.endDate];
+            [results addObject: interval];
         }
         lastEvent = event;
     }
     return results;
 }
-
 @end

@@ -9,6 +9,7 @@
 #import <XCTest/XCTest.h>
 #import <EventKit/EventKit.h>
 #import "PKTEventManager.h"
+#import "PKTInterval.h"
 
 @interface PacktTests : XCTestCase
 @property PKTEventManager *eventManager;
@@ -47,9 +48,14 @@
 
 - (void)testExample
 {
-    NSArray *intervals = [self.eventManager openTimeIntervalsBetweenEventsInArray:self.events];
-    NSNumber *correctInterval = [NSNumber numberWithDouble:60*60*1.5];
-    XCTAssertEqualObjects(intervals, @[correctInterval], "Got interval array %@ but expected array %@");
+    PKTInterval *testInterval = [[self.eventManager openTimeIntervalsBetweenEventsInArray:self.events] objectAtIndex:0];
+    
+    PKTInterval *correctInterval = [[PKTInterval alloc] init];
+    correctInterval.interval = 60*60*1.5;
+    correctInterval.startTime = [[self.events objectAtIndex:0] endDate];
+    
+    XCTAssertTrue([testInterval.startTime compare:correctInterval.startTime] == NSOrderedSame, @"Got different interval startTime than expected startTime");
+    XCTAssertEqual(testInterval.interval, correctInterval.interval, @"Got different interval than expected duration");
 }
 
 @end
