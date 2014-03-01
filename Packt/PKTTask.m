@@ -14,4 +14,8 @@
 {
     return (NSTimeInterval)self.length * 60;
 }
+- (NSDictionary *) dictionaryRepresentation
+{
+    return @{@"title": self.title, @"length": [NSNumber numberWithInt: self.length]};
+}
 @end

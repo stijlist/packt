@@ -5,7 +5,7 @@
 //  Created by Bert Muthalaly on 2/28/14.
 //  Copyright (c) 2014 Bert Muthalaly. All rights reserved.
 //
-
+#import <Foundation/Foundation.h>
 #import "PKTViewController.h"
 #import "PKTTaskCell.h"
 #import "PKTTask.h"
@@ -33,8 +33,17 @@ NSString *kCellID = @"cellID";                          // UICollectionViewCell 
     [super viewDidLoad];
     // Do any additional setup after loading the view, typically from a nib.
     [self.collectionView setAlwaysBounceVertical:YES];
+    NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
     self.tasks = [[NSMutableArray alloc] init];
-
+    id tasklist = [defaults objectForKey:@"packt_list"];
+    if(tasklist) {
+        for (NSDictionary *dict in tasklist) {
+            PKTTask *task = [[PKTTask alloc] init];
+            task.title = [dict objectForKey:@"title"];
+            task.length = [[dict objectForKey:@"length"] integerValue];
+            [self.tasks addObject:task];
+        }
+    }
     self.scheduler = [[PKTTaskScheduler alloc] init];
     self.isCreatingTask = NO;
 }
@@ -109,7 +118,15 @@ NSString *kCellID = @"cellID";                          // UICollectionViewCell 
 }
 - (void)viewWillDisappear:(BOOL)animated
 {
-    
+    NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
+    NSMutableArray *defsArray = [[NSMutableArray alloc] init];
+    id tasklist = [defaults objectForKey:@"packt_list"];
+    if(tasklist) {
+        for (PKTTask *task in self.tasks) {
+            [defsArray addObject: [task dictionaryRepresentation]];
+        }
+        tasklist = [NSArray arrayWithArray:defsArray];
+    }
 }
 - (IBAction)swipedOnTask:(id)sender {
     //STUB: Do something when the task gets swiped
