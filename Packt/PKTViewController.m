@@ -7,6 +7,9 @@
 //
 
 #import "PKTViewController.h"
+#import "PKTTaskCell.h"
+
+NSString *kCellID = @"cellID";                          // UICollectionViewCell storyboard id
 
 @interface PKTViewController ()
 
@@ -20,10 +23,41 @@
 	// Do any additional setup after loading the view, typically from a nib.
 }
 
+- (NSInteger)collectionView:(UICollectionView *)view numberOfItemsInSection:(NSInteger)section;
+{
+    return 32;
+}
+
+- (UICollectionViewCell *)collectionView:(UICollectionView *)cv cellForItemAtIndexPath:(NSIndexPath *)indexPath;
+{
+    // we're going to use a custom UICollectionViewCell, which will hold an image and its label
+    PKTTaskCell *cell = [cv dequeueReusableCellWithReuseIdentifier:kCellID forIndexPath:indexPath];
+    
+    // make the cell's title the actual NSIndexPath value
+    cell.title.text = [NSString stringWithFormat:@"Item %ld", (long)indexPath.row];
+    
+    // load the image for this cell
+    return cell;
+}
+
+// the user tapped a collection item, load and set the image on the detail view controller
+//
+- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
+{
+    NSLog(@"Tapped the task");
+}
+
+- (IBAction)createTaskButtonTouched:(id)sender {
+    NSLog(@"Add new task pressed.");
+    //Stub
+}
+
 - (void)didReceiveMemoryWarning
 {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
 }
+
+
 
 @end
