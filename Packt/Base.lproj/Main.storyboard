@@ -128,7 +128,6 @@
                         <connections>
                             <outlet property="dataSource" destination="cbF-Fu-s6B" id="mIL-4c-QvF"/>
                             <outlet property="delegate" destination="cbF-Fu-s6B" id="7Mk-FT-MSM"/>
-                            <outletCollection property="gestureRecognizers" destination="6M3-oY-5uE" appends="YES" id="UUy-qG-stb"/>
                         </connections>
                     </collectionView>
                     <navigationItem key="navigationItem" title="Tasks" id="edD-cM-UTe">
@@ -145,11 +144,6 @@
                         <action selector="swipedOnTask:" destination="cbF-Fu-s6B" id="VJ2-xw-8gJ"/>
                     </connections>
                 </swipeGestureRecognizer>
-                <panGestureRecognizer minimumNumberOfTouches="1" id="6M3-oY-5uE">
-                    <connections>
-                        <action selector="pannedOnTaskList:" destination="cbF-Fu-s6B" id="BYk-wL-VO5"/>
-                    </connections>
-                </panGestureRecognizer>
             </objects>
             <point key="canvasLocation" x="1231" y="-432"/>
         </scene>
