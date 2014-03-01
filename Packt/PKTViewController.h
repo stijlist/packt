@@ -8,6 +8,6 @@
 
 #import <UIKit/UIKit.h>
 
-@interface PKTViewController : UIViewController
+@interface PKTViewController : UICollectionViewController
 
 @end

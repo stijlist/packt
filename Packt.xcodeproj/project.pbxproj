@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		2016810F18C184AA00093205 /* PKTTaskCollectionLayout.m in Sources */ = {isa = PBXBuildFile; fileRef = 2016810E18C184AA00093205 /* PKTTaskCollectionLayout.m */; };
+		206FAFF118C17F0A0060903F /* PKTTaskCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 206FAFF018C17F0A0060903F /* PKTTaskCell.m */; };
 		4C880FBE18C15E3D00241954 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4C880FBD18C15E3D00241954 /* Foundation.framework */; };
 		4C880FC018C15E3D00241954 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4C880FBF18C15E3D00241954 /* CoreGraphics.framework */; };
 		4C880FC218C15E3D00241954 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4C880FC118C15E3D00241954 /* UIKit.framework */; };
@@ -38,6 +40,10 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		2016810D18C184AA00093205 /* PKTTaskCollectionLayout.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PKTTaskCollectionLayout.h; sourceTree = "<group>"; };
+		2016810E18C184AA00093205 /* PKTTaskCollectionLayout.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PKTTaskCollectionLayout.m; sourceTree = "<group>"; };
+		206FAFEF18C17F0A0060903F /* PKTTaskCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = PKTTaskCell.h; path = ../PKTTaskCell.h; sourceTree = "<group>"; };
+		206FAFF018C17F0A0060903F /* PKTTaskCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = PKTTaskCell.m; path = ../PKTTaskCell.m; sourceTree = "<group>"; };
 		4C880FBA18C15E3C00241954 /* Packt.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Packt.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		4C880FBD18C15E3D00241954 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		4C880FBF18C15E3D00241954 /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
@@ -125,6 +131,8 @@
 		4C880FC318C15E3D00241954 /* Packt */ = {
 			isa = PBXGroup;
 			children = (
+				206FAFEF18C17F0A0060903F /* PKTTaskCell.h */,
+				206FAFF018C17F0A0060903F /* PKTTaskCell.m */,
 				4C880FCC18C15E3D00241954 /* PKTAppDelegate.h */,
 				4C880FCD18C15E3D00241954 /* PKTAppDelegate.m */,
 				4C880FF218C1669F00241954 /* PKTEventManager.h */,
@@ -136,6 +144,8 @@
 				4C880FCF18C15E3D00241954 /* Main.storyboard */,
 				4C880FD218C15E3D00241954 /* PKTViewController.h */,
 				4C880FD318C15E3D00241954 /* PKTViewController.m */,
+				2016810D18C184AA00093205 /* PKTTaskCollectionLayout.h */,
+				2016810E18C184AA00093205 /* PKTTaskCollectionLayout.m */,
 				4C880FD518C15E3D00241954 /* Images.xcassets */,
 				4C880FC418C15E3D00241954 /* Supporting Files */,
 			);
@@ -275,6 +285,8 @@
 				4C880FF918C1840400241954 /* PKTTaskScheduler.m in Sources */,
 				4C880FCE18C15E3D00241954 /* PKTAppDelegate.m in Sources */,
 				4C880FCA18C15E3D00241954 /* main.m in Sources */,
+				2016810F18C184AA00093205 /* PKTTaskCollectionLayout.m in Sources */,
+				206FAFF118C17F0A0060903F /* PKTTaskCell.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -483,6 +495,7 @@
 				4C880FEE18C15E3D00241954 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		4C880FEF18C15E3D00241954 /* Build configuration list for PBXNativeTarget "PacktTests" */ = {
 			isa = XCConfigurationList;
@@ -491,6 +504,7 @@
 				4C880FF118C15E3D00241954 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
