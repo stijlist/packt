@@ -21,6 +21,8 @@
 		4C880FDF18C15E3D00241954 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4C880FC118C15E3D00241954 /* UIKit.framework */; };
 		4C880FE718C15E3D00241954 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 4C880FE518C15E3D00241954 /* InfoPlist.strings */; };
 		4C880FE918C15E3D00241954 /* PacktTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 4C880FE818C15E3D00241954 /* PacktTests.m */; };
+		4C880FF418C1669F00241954 /* PKTEventManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 4C880FF318C1669F00241954 /* PKTEventManager.m */; };
+		4C880FF618C16D5300241954 /* EventKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4C880FF518C16D5300241954 /* EventKit.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -53,6 +55,9 @@
 		4C880FE418C15E3D00241954 /* PacktTests-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "PacktTests-Info.plist"; sourceTree = "<group>"; };
 		4C880FE618C15E3D00241954 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		4C880FE818C15E3D00241954 /* PacktTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = PacktTests.m; sourceTree = "<group>"; };
+		4C880FF218C1669F00241954 /* PKTEventManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PKTEventManager.h; sourceTree = "<group>"; };
+		4C880FF318C1669F00241954 /* PKTEventManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PKTEventManager.m; sourceTree = "<group>"; };
+		4C880FF518C16D5300241954 /* EventKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = EventKit.framework; path = System/Library/Frameworks/EventKit.framework; sourceTree = SDKROOT; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -60,6 +65,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				4C880FF618C16D5300241954 /* EventKit.framework in Frameworks */,
 				4C880FC018C15E3D00241954 /* CoreGraphics.framework in Frameworks */,
 				4C880FC218C15E3D00241954 /* UIKit.framework in Frameworks */,
 				4C880FBE18C15E3D00241954 /* Foundation.framework in Frameworks */,
@@ -101,6 +107,7 @@
 		4C880FBC18C15E3C00241954 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				4C880FF518C16D5300241954 /* EventKit.framework */,
 				4C880FBD18C15E3D00241954 /* Foundation.framework */,
 				4C880FBF18C15E3D00241954 /* CoreGraphics.framework */,
 				4C880FC118C15E3D00241954 /* UIKit.framework */,
@@ -114,6 +121,8 @@
 			children = (
 				4C880FCC18C15E3D00241954 /* PKTAppDelegate.h */,
 				4C880FCD18C15E3D00241954 /* PKTAppDelegate.m */,
+				4C880FF218C1669F00241954 /* PKTEventManager.h */,
+				4C880FF318C1669F00241954 /* PKTEventManager.m */,
 				4C880FCF18C15E3D00241954 /* Main.storyboard */,
 				4C880FD218C15E3D00241954 /* PKTViewController.h */,
 				4C880FD318C15E3D00241954 /* PKTViewController.m */,
@@ -250,6 +259,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				4C880FF418C1669F00241954 /* PKTEventManager.m in Sources */,
 				4C880FD418C15E3D00241954 /* PKTViewController.m in Sources */,
 				4C880FCE18C15E3D00241954 /* PKTAppDelegate.m in Sources */,
 				4C880FCA18C15E3D00241954 /* main.m in Sources */,
