@@ -15,9 +15,9 @@ NSString *kCellID = @"cellID";                          // UICollectionViewCell 
 
 @interface PKTViewController ()
 
-@property NSArray *events;
 @property NSMutableArray *tasks;
 @property PKTTaskScheduler *scheduler;
+
 @end
 
 @implementation PKTViewController
@@ -45,12 +45,21 @@ NSString *kCellID = @"cellID";                          // UICollectionViewCell 
     
     return cell;
 }
+
 - (CGSize)collectionView:(UICollectionView *)collectionView layout:(UICollectionViewLayout*)collectionViewLayout sizeForItemAtIndexPath:(NSIndexPath *)indexPath {
     return CGSizeMake(320, 50);
 }
 
 - (IBAction)doneEditing:(id)sender {
     NSLog(@"Done editing");
+    UITextField *senderTextField = (UITextField *) sender;
+    PKTTaskCell *taskCell = (PKTTaskCell *)[[senderTextField superview] superview];
+    
+    NSIndexPath *indexPath = [self.collectionView indexPathForCell:taskCell];
+    PKTTask *task = (PKTTask*)[self.tasks objectAtIndex:indexPath.row];
+    
+    task.title = [taskCell title].text;
+    task.length = [[taskCell timeInterval].text integerValue];
 }
 
 - (IBAction)createNewTaskButtonTouched:(id)sender {
