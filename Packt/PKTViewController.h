@@ -9,5 +9,4 @@
 #import <UIKit/UIKit.h>
 
 @interface PKTViewController : UICollectionViewController <UICollectionViewDataSource, UICollectionViewDelegateFlowLayout>
-- (NSInteger)collectionView:(UICollectionView *)asker numberOfItemsInSection:(NSInteger)section;
 @end
