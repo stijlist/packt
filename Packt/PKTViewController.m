@@ -101,6 +101,17 @@ NSString *kCellID = @"cellID";                          // UICollectionViewCell 
     }
 }
 
+- (IBAction)pannedOnTaskList:(id)sender {
+    UIPanGestureRecognizer *panRecognizer = (UIPanGestureRecognizer *) sender;
+    CGPoint velocity = [panRecognizer velocityInView:self.collectionView];
+    //NSLog(@"%.20f", velocity.y);
+    if(velocity.y > 400) {
+        NSLog(@"Down Pan detected.");
+        [self createNewTaskButtonTouched:self];
+    } else if (velocity.y < -400) {
+        NSLog(@"Up pan detected.");
+    }
+}
 - (void)viewWillDisappear:(BOOL)animated
 {
     NSArray *paths = NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES);
@@ -108,7 +119,10 @@ NSString *kCellID = @"cellID";                          // UICollectionViewCell 
     NSString *appFile = [documentsDirectory stringByAppendingPathComponent:@"packtfile"];
 
     [NSKeyedArchiver archiveRootObject:self.tasks toFile:appFile];
-    
+}
+- (IBAction)swipedOnTask:(id)sender {
+    //STUB: Do something when the task gets swiped
+    NSLog(@"Swiped on the task");
 }
 
 - (void)didReceiveMemoryWarning
