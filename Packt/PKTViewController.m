@@ -24,14 +24,13 @@ NSString *kCellID = @"cellID";                          // UICollectionViewCell 
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-    self.eventManager = [[PKTEventManager alloc] init];
+    //self.eventManager = [[PKTEventManager alloc] init];
     self.events = [self.eventManager eventsForCurrentDay];
 	// Do any additional setup after loading the view, typically from a nib.
 }
 
 - (NSInteger)collectionView:(UICollectionView *)view numberOfItemsInSection:(NSInteger)section;
 {
-    NSLog(@"%d", [self.events count]);
     return [self.events count];
 }
 
