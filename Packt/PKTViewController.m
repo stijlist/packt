@@ -47,6 +47,7 @@ NSString *kCellID = @"cellID";                          // UICollectionViewCell 
     
     return cell;
 }
+
 - (CGSize)collectionView:(UICollectionView *)collectionView layout:(UICollectionViewLayout*)collectionViewLayout sizeForItemAtIndexPath:(NSIndexPath *)indexPath {
     return CGSizeMake(320, 50);
 }
