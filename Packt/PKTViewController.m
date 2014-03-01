@@ -66,7 +66,11 @@ NSString *kCellID = @"cellID";                          // UICollectionViewCell 
     NSLog(@"Creating new task");
     PKTTask *newTask = [[PKTTask alloc] init];
     [self.tasks insertObject:newTask atIndex:0];
-    [self.collectionView reloadData];
+    
+    //[self.collectionView reloadData];
+    NSIndexPath *indexPath = [NSIndexPath indexPathForItem:0 inSection:0];
+    NSArray *indexPaths = [NSArray arrayWithObject:indexPath];
+    [self.collectionView insertItemsAtIndexPaths:indexPaths];
 }
 
 
