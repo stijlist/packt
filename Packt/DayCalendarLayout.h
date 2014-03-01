@@ -8,6 +8,6 @@
 
 #import <UIKit/UIKit.h>
 
-@interface WeekCalendarLayout : UICollectionViewLayout
+@interface DayCalendarLayout : UICollectionViewLayout
 
 @end

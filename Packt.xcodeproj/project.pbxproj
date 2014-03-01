@@ -11,7 +11,7 @@
 		2016811218C1A1A100093205 /* PKTTask.m in Sources */ = {isa = PBXBuildFile; fileRef = 2016811118C1A1A100093205 /* PKTTask.m */; };
 		2016818818C1C55700093205 /* CalendarViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2016817B18C1C55700093205 /* CalendarViewController.m */; };
 		2016818918C1C55700093205 /* CalendarDataSource.m in Sources */ = {isa = PBXBuildFile; fileRef = 2016817D18C1C55700093205 /* CalendarDataSource.m */; };
-		2016818A18C1C55700093205 /* WeekCalendarLayout.m in Sources */ = {isa = PBXBuildFile; fileRef = 2016817F18C1C55700093205 /* WeekCalendarLayout.m */; };
+		2016818A18C1C55700093205 /* DayCalendarLayout.m in Sources */ = {isa = PBXBuildFile; fileRef = 2016817F18C1C55700093205 /* DayCalendarLayout.m */; };
 		2016818B18C1C55700093205 /* CalendarEventCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 2016818118C1C55700093205 /* CalendarEventCell.m */; };
 		2016818C18C1C55700093205 /* HeaderView.m in Sources */ = {isa = PBXBuildFile; fileRef = 2016818318C1C55700093205 /* HeaderView.m */; };
 		2016818D18C1C55700093205 /* HeaderView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 2016818418C1C55700093205 /* HeaderView.xib */; };
@@ -56,8 +56,8 @@
 		2016817B18C1C55700093205 /* CalendarViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CalendarViewController.m; sourceTree = "<group>"; };
 		2016817C18C1C55700093205 /* CalendarDataSource.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CalendarDataSource.h; sourceTree = "<group>"; };
 		2016817D18C1C55700093205 /* CalendarDataSource.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CalendarDataSource.m; sourceTree = "<group>"; };
-		2016817E18C1C55700093205 /* WeekCalendarLayout.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WeekCalendarLayout.h; sourceTree = "<group>"; };
-		2016817F18C1C55700093205 /* WeekCalendarLayout.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WeekCalendarLayout.m; sourceTree = "<group>"; };
+		2016817E18C1C55700093205 /* DayCalendarLayout.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DayCalendarLayout.h; sourceTree = "<group>"; };
+		2016817F18C1C55700093205 /* DayCalendarLayout.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DayCalendarLayout.m; sourceTree = "<group>"; };
 		2016818018C1C55700093205 /* CalendarEventCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CalendarEventCell.h; sourceTree = "<group>"; };
 		2016818118C1C55700093205 /* CalendarEventCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CalendarEventCell.m; sourceTree = "<group>"; };
 		2016818218C1C55700093205 /* HeaderView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HeaderView.h; sourceTree = "<group>"; };
@@ -151,8 +151,8 @@
 				2016817B18C1C55700093205 /* CalendarViewController.m */,
 				2016817C18C1C55700093205 /* CalendarDataSource.h */,
 				2016817D18C1C55700093205 /* CalendarDataSource.m */,
-				2016817E18C1C55700093205 /* WeekCalendarLayout.h */,
-				2016817F18C1C55700093205 /* WeekCalendarLayout.m */,
+				2016817E18C1C55700093205 /* DayCalendarLayout.h */,
+				2016817F18C1C55700093205 /* DayCalendarLayout.m */,
 				2016818018C1C55700093205 /* CalendarEventCell.h */,
 				2016818118C1C55700093205 /* CalendarEventCell.m */,
 				2016818218C1C55700093205 /* HeaderView.h */,
@@ -354,7 +354,7 @@
 				2016818C18C1C55700093205 /* HeaderView.m in Sources */,
 				4C880FFF18C1E5A600241954 /* PKTCalendarEvent.m in Sources */,
 				4C880FCA18C15E3D00241954 /* main.m in Sources */,
-				2016818A18C1C55700093205 /* WeekCalendarLayout.m in Sources */,
+				2016818A18C1C55700093205 /* DayCalendarLayout.m in Sources */,
 				2016810F18C184AA00093205 /* PKTTaskCollectionLayout.m in Sources */,
 				2016818818C1C55700093205 /* CalendarViewController.m in Sources */,
 				2016818918C1C55700093205 /* CalendarDataSource.m in Sources */,

@@ -6,7 +6,7 @@
 //  Copyright (c) 2013 Ole Begemann. All rights reserved.
 //
 
-#import "WeekCalendarLayout.h"
+#import "DayCalendarLayout.h"
 #import "CalendarDataSource.h"
 #import "CalendarEvent.h"
 
@@ -16,11 +16,11 @@ static const CGFloat HorizontalSpacing = 10;
 static const CGFloat HeightPerHour = 50;
 static const CGFloat HourHeaderWidth = 100;
 
-@interface WeekCalendarLayout ()
+@interface DayCalendarLayout ()
 
 @end
 
-@implementation WeekCalendarLayout
+@implementation DayCalendarLayout
 
 #pragma mark - UICollectionViewLayout Implementation
 
