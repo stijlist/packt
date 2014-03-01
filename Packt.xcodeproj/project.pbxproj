@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		2016810F18C184AA00093205 /* PKTTaskCollectionLayout.m in Sources */ = {isa = PBXBuildFile; fileRef = 2016810E18C184AA00093205 /* PKTTaskCollectionLayout.m */; };
+		2016811218C1A1A100093205 /* PKTTask.m in Sources */ = {isa = PBXBuildFile; fileRef = 2016811118C1A1A100093205 /* PKTTask.m */; };
 		206FAFF118C17F0A0060903F /* PKTTaskCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 206FAFF018C17F0A0060903F /* PKTTaskCell.m */; };
 		4C880FBE18C15E3D00241954 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4C880FBD18C15E3D00241954 /* Foundation.framework */; };
 		4C880FC018C15E3D00241954 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4C880FBF18C15E3D00241954 /* CoreGraphics.framework */; };
@@ -42,6 +43,8 @@
 /* Begin PBXFileReference section */
 		2016810D18C184AA00093205 /* PKTTaskCollectionLayout.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PKTTaskCollectionLayout.h; sourceTree = "<group>"; };
 		2016810E18C184AA00093205 /* PKTTaskCollectionLayout.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PKTTaskCollectionLayout.m; sourceTree = "<group>"; };
+		2016811018C1A1A100093205 /* PKTTask.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PKTTask.h; sourceTree = "<group>"; };
+		2016811118C1A1A100093205 /* PKTTask.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PKTTask.m; sourceTree = "<group>"; };
 		206FAFEF18C17F0A0060903F /* PKTTaskCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = PKTTaskCell.h; path = ../PKTTaskCell.h; sourceTree = "<group>"; };
 		206FAFF018C17F0A0060903F /* PKTTaskCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = PKTTaskCell.m; path = ../PKTTaskCell.m; sourceTree = "<group>"; };
 		4C880FBA18C15E3C00241954 /* Packt.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Packt.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -132,6 +135,8 @@
 			isa = PBXGroup;
 			children = (
 				206FAFEF18C17F0A0060903F /* PKTTaskCell.h */,
+				2016811018C1A1A100093205 /* PKTTask.h */,
+				2016811118C1A1A100093205 /* PKTTask.m */,
 				206FAFF018C17F0A0060903F /* PKTTaskCell.m */,
 				4C880FCC18C15E3D00241954 /* PKTAppDelegate.h */,
 				4C880FCD18C15E3D00241954 /* PKTAppDelegate.m */,
@@ -280,6 +285,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				4C880FFC18C1885B00241954 /* PKTInterval.m in Sources */,
+				2016811218C1A1A100093205 /* PKTTask.m in Sources */,
 				4C880FF418C1669F00241954 /* PKTEventManager.m in Sources */,
 				4C880FD418C15E3D00241954 /* PKTViewController.m in Sources */,
 				4C880FF918C1840400241954 /* PKTTaskScheduler.m in Sources */,
