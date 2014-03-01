@@ -17,6 +17,8 @@ NSString *kCellID = @"cellID";                          // UICollectionViewCell 
 
 @property NSMutableArray *tasks;
 @property PKTTaskScheduler *scheduler;
+@property (strong, nonatomic) IBOutlet UIPanGestureRecognizer *gestureRecognizer;
+@property BOOL isCreatingTask;
 
 @end
 
@@ -39,6 +41,12 @@ NSString *kCellID = @"cellID";                          // UICollectionViewCell 
     self.tasks = [NSKeyedUnarchiver unarchiveObjectWithFile:appFile];
 ;
     self.scheduler = [[PKTTaskScheduler alloc] init];
+    self.isCreatingTask = NO;
+}
+
+- (BOOL)gestureRecognizer:(UIGestureRecognizer *)gestureRecognizer shouldRecognizeSimultaneouslyWithGestureRecognizer:(UIGestureRecognizer *)otherGestureRecognizer
+{
+    return YES;
 }
 
 - (UICollectionViewCell *)collectionView:(UICollectionView *)cv cellForItemAtIndexPath:(NSIndexPath *)indexPath;
@@ -58,6 +66,7 @@ NSString *kCellID = @"cellID";                          // UICollectionViewCell 
 
 - (IBAction)doneEditing:(id)sender {
     NSLog(@"Done editing");
+    self.isCreatingTask = NO;
     UITextField *senderTextField = (UITextField *) sender;
     PKTTaskCell *taskCell = (PKTTaskCell *)[[senderTextField superview] superview];
     
@@ -66,6 +75,8 @@ NSString *kCellID = @"cellID";                          // UICollectionViewCell 
     
     task.title = [taskCell title].text;
     task.length = [[taskCell timeInterval].text integerValue];
+    self.navigationItem.rightBarButtonItem.enabled = YES;
+
     
     if([[taskCell title].text length] == 0) {
         NSArray *indexPaths = [NSArray arrayWithObject:[self.collectionView indexPathForCell:taskCell]];
@@ -75,6 +86,8 @@ NSString *kCellID = @"cellID";                          // UICollectionViewCell 
 }
 
 - (IBAction)createNewTaskButtonTouched:(id)sender {
+    if(self.isCreatingTask == NO){
+        self.isCreatingTask = YES;
     NSLog(@"Creating new task");
     PKTTask *newTask = [[PKTTask alloc] init];
     [self.tasks insertObject:newTask atIndex:0];
@@ -84,6 +97,8 @@ NSString *kCellID = @"cellID";                          // UICollectionViewCell 
     [self.collectionView insertItemsAtIndexPaths:indexPaths];
     //This is probably not the right place for this.
     [[(PKTTaskCell *)[self.collectionView cellForItemAtIndexPath:indexPath] title] becomeFirstResponder];
+    self.navigationItem.rightBarButtonItem.enabled = NO;
+    }
 }
 
 - (void)viewWillDisappear:(BOOL)animated

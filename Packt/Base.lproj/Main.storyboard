@@ -84,6 +84,7 @@
                         <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <gestureRecognizers/>
                         <collectionViewLayout key="collectionViewLayout" id="kkH-0s-TIF" customClass="PKTTaskCollectionLayout"/>
                         <cells>
                             <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="cellID" id="Mbg-qF-gIo" customClass="PKTTaskCell">
@@ -120,8 +121,7 @@
                                 <connections>
                                     <outlet property="timeInterval" destination="lOt-gG-xzT" id="g3N-Xw-4vN"/>
                                     <outlet property="title" destination="j9p-XI-1xo" id="oVl-Vq-9pm"/>
-                                    <outletCollection property="gestureRecognizers" destination="CnG-k4-nkk" appends="YES" id="naC-n5-HiY"/>
-                                    <outletCollection property="gestureRecognizers" destination="CnG-k4-nkk" appends="YES" id="8he-y5-IJT"/>
+                                    <outletCollection property="gestureRecognizers" destination="UpU-Ke-dB2" appends="YES" id="uES-DR-lhN"/>
                                 </connections>
                             </collectionViewCell>
                         </cells>
@@ -139,7 +139,11 @@
                     </navigationItem>
                 </collectionViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="nEb-7g-UHc" userLabel="First Responder" sceneMemberID="firstResponder"/>
-                <panGestureRecognizer minimumNumberOfTouches="1" id="CnG-k4-nkk"/>
+                <swipeGestureRecognizer direction="right" id="UpU-Ke-dB2">
+                    <connections>
+                        <action selector="swipedOnTask:" destination="cbF-Fu-s6B" id="VJ2-xw-8gJ"/>
+                    </connections>
+                </swipeGestureRecognizer>
             </objects>
             <point key="canvasLocation" x="1231" y="-432"/>
         </scene>
