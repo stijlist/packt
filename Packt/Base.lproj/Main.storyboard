@@ -31,7 +31,7 @@
                         <collectionViewLayout key="collectionViewLayout" id="0cF-LI-L9Y" customClass="DayCalendarLayout"/>
                         <cells>
                             <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="CalendarEventCell" id="neh-38-gfi" customClass="CalendarEventCell">
-                                <rect key="frame" x="60" y="0.0" width="200" height="200"/>
+                                <rect key="frame" x="60" y="64" width="200" height="200"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
                                     <rect key="frame" x="0.0" y="0.0" width="200" height="200"/>
@@ -92,7 +92,7 @@
                         </collectionViewFlowLayout>
                         <cells>
                             <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="cellID" id="Mbg-qF-gIo" customClass="PKTTaskCell">
-                                <rect key="frame" x="0.0" y="0.0" width="320" height="50"/>
+                                <rect key="frame" x="0.0" y="64" width="320" height="50"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
                                     <rect key="frame" x="0.0" y="0.0" width="320" height="50"/>
@@ -120,8 +120,8 @@
                                 <gestureRecognizers/>
                                 <size key="customSize" width="320" height="50"/>
                                 <connections>
-                                    <outlet property="timeInterval" destination="lOt-gG-xzT" id="r5v-n6-7qI"/>
-                                    <outlet property="title" destination="j9p-XI-1xo" id="9fm-KQ-kFM"/>
+                                    <outlet property="timeInterval" destination="lOt-gG-xzT" id="g3N-Xw-4vN"/>
+                                    <outlet property="title" destination="j9p-XI-1xo" id="oVl-Vq-9pm"/>
                                     <outletCollection property="gestureRecognizers" destination="CnG-k4-nkk" appends="YES" id="naC-n5-HiY"/>
                                     <outletCollection property="gestureRecognizers" destination="CnG-k4-nkk" appends="YES" id="8he-y5-IJT"/>
                                 </connections>
