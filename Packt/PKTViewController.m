@@ -21,6 +21,11 @@ NSString *kCellID = @"cellID";                          // UICollectionViewCell 
 @end
 
 @implementation PKTViewController
+
+- (NSInteger)collectionView:(UICollectionView *)asker numberOfItemsInSection:(NSInteger)section
+{
+    return [self.tasks count]; // this is the Controller interpreting the Model for the View
+}
 - (void)viewDidLoad
 {
     [super viewDidLoad];
@@ -28,11 +33,6 @@ NSString *kCellID = @"cellID";                          // UICollectionViewCell 
     [self.collectionView setAlwaysBounceVertical:YES];
     self.tasks = [[NSMutableArray alloc] init];
     self.scheduler = [[PKTTaskScheduler alloc] init];
-}
-
-- (NSInteger)collectionView:(UICollectionView *)view numberOfItemsInSection:(NSInteger)section;
-{
-    return [self.tasks count];
 }
 
 - (UICollectionViewCell *)collectionView:(UICollectionView *)cv cellForItemAtIndexPath:(NSIndexPath *)indexPath;
@@ -44,6 +44,9 @@ NSString *kCellID = @"cellID";                          // UICollectionViewCell 
     cell.timeInterval.text = [[NSNumber numberWithUnsignedInt:taskAtIndex.length] stringValue];
     
     return cell;
+}
+- (CGSize)collectionView:(UICollectionView *)collectionView layout:(UICollectionViewLayout*)collectionViewLayout sizeForItemAtIndexPath:(NSIndexPath *)indexPath {
+    return CGSizeMake(320, 50);
 }
 
 - (IBAction)doneEditing:(id)sender {

@@ -8,6 +8,5 @@
 
 #import <UIKit/UIKit.h>
 
-@interface PKTViewController : UICollectionViewController
-
+@interface PKTViewController : UICollectionViewController <UICollectionViewDataSource, UICollectionViewDelegateFlowLayout>
 @end
