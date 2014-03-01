@@ -11,6 +11,6 @@
 @interface PKTTaskCell : UICollectionViewCell
 
 @property (strong, nonatomic) IBOutlet UITextField *title;
-@property (strong, nonatomic) IBOutlet UILabel *timeInterval;
+@property (weak, nonatomic) IBOutlet UITextField *timeInterval;
 
 @end

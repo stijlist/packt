@@ -100,6 +100,28 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		2016811318C1A5C000093205 /* View Controllers */ = {
+			isa = PBXGroup;
+			children = (
+				206FAFEF18C17F0A0060903F /* PKTTaskCell.h */,
+				206FAFF018C17F0A0060903F /* PKTTaskCell.m */,
+				4C880FD218C15E3D00241954 /* PKTViewController.h */,
+				4C880FD318C15E3D00241954 /* PKTViewController.m */,
+				2016810D18C184AA00093205 /* PKTTaskCollectionLayout.h */,
+				2016810E18C184AA00093205 /* PKTTaskCollectionLayout.m */,
+			);
+			name = "View Controllers";
+			sourceTree = "<group>";
+		};
+		2016811418C1A5C900093205 /* Classes */ = {
+			isa = PBXGroup;
+			children = (
+				2016811018C1A1A100093205 /* PKTTask.h */,
+				2016811118C1A1A100093205 /* PKTTask.m */,
+			);
+			name = Classes;
+			sourceTree = "<group>";
+		};
 		4C880FB118C15E3C00241954 = {
 			isa = PBXGroup;
 			children = (
@@ -134,10 +156,8 @@
 		4C880FC318C15E3D00241954 /* Packt */ = {
 			isa = PBXGroup;
 			children = (
-				206FAFEF18C17F0A0060903F /* PKTTaskCell.h */,
-				2016811018C1A1A100093205 /* PKTTask.h */,
-				2016811118C1A1A100093205 /* PKTTask.m */,
-				206FAFF018C17F0A0060903F /* PKTTaskCell.m */,
+				2016811418C1A5C900093205 /* Classes */,
+				2016811318C1A5C000093205 /* View Controllers */,
 				4C880FCC18C15E3D00241954 /* PKTAppDelegate.h */,
 				4C880FCD18C15E3D00241954 /* PKTAppDelegate.m */,
 				4C880FF218C1669F00241954 /* PKTEventManager.h */,
@@ -147,10 +167,6 @@
 				4C880FF718C1840400241954 /* PKTTaskScheduler.h */,
 				4C880FF818C1840400241954 /* PKTTaskScheduler.m */,
 				4C880FCF18C15E3D00241954 /* Main.storyboard */,
-				4C880FD218C15E3D00241954 /* PKTViewController.h */,
-				4C880FD318C15E3D00241954 /* PKTViewController.m */,
-				2016810D18C184AA00093205 /* PKTTaskCollectionLayout.h */,
-				2016810E18C184AA00093205 /* PKTTaskCollectionLayout.m */,
 				4C880FD518C15E3D00241954 /* Images.xcassets */,
 				4C880FC418C15E3D00241954 /* Supporting Files */,
 			);

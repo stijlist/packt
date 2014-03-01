@@ -27,6 +27,7 @@ NSString *kCellID = @"cellID";                          // UICollectionViewCell 
 - (void)viewDidLoad
 {
     [super viewDidLoad];
+    [self.collectionView setAlwaysBounceVertical:YES];
     self.eventManager = [[PKTEventManager alloc] init];
     self.events = [self.eventManager eventsForCurrentDay];
     self.tasks = [[NSMutableArray alloc] init];
@@ -52,13 +53,9 @@ NSString *kCellID = @"cellID";                          // UICollectionViewCell 
 
 - (UICollectionViewCell *)collectionView:(UICollectionView *)cv cellForItemAtIndexPath:(NSIndexPath *)indexPath;
 {
-    // we're going to use a custom UICollectionViewCell, which will hold an image and its label
     PKTTaskCell *cell = [cv dequeueReusableCellWithReuseIdentifier:kCellID forIndexPath:indexPath];
-    
-    // make the cell's title the actual NSIndexPath value
-    
-    //EKEvent *currentEvent = [self.events objectAtIndex:indexPath.row];
     PKTTask *taskAtIndex = [self.tasks objectAtIndex:indexPath.row];
+    
     cell.title.text = [taskAtIndex title];
     cell.timeInterval.text = @"30";
     
@@ -72,7 +69,7 @@ NSString *kCellID = @"cellID";                          // UICollectionViewCell 
 - (IBAction)createNewTaskButtonTouched:(id)sender {
     NSLog(@"Creating new task");
     PKTTask *newTask = [[PKTTask alloc] init];
-    [self.tasks addObject:newTask];
+    [self.tasks insertObject:newTask atIndex:0];
     [self.collectionView reloadData];
 }
 
