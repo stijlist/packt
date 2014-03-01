@@ -20,6 +20,8 @@ NSString *kCellID = @"cellID";                          // UICollectionViewCell 
 - (void)viewDidLoad
 {
     [super viewDidLoad];
+    UICollectionViewFlowLayout *flow = (UICollectionViewFlowLayout*) self.collectionViewLayout;
+    flow.sectionInset = UIEdgeInsetsMake(0, 0, 0, 0);
 	// Do any additional setup after loading the view, typically from a nib.
 }
 
