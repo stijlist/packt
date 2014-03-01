@@ -10,5 +10,8 @@
 
 @implementation PKTTask
 
-
+- (NSTimeInterval) timeInterval
+{
+    return (NSTimeInterval)self.length * 60;
+}
 @end

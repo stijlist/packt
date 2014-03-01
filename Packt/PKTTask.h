@@ -11,6 +11,6 @@
 @interface PKTTask : NSObject
 
 @property NSString *title;
-@property NSUInteger *length;
-
+@property NSUInteger length;
+- (NSTimeInterval) timeInterval;
 @end
