@@ -11,6 +11,14 @@
 
 @implementation PKTAppDelegate
 
+-(id) init {
+    self = [super init];
+    if (self) {
+        _taskList = [[NSMutableArray alloc] init];
+    }
+    return self;
+}
+
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 {
     // Override point for customization after application launch.

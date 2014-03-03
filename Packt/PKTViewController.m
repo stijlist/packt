@@ -10,6 +10,7 @@
 #import "PKTTaskCell.h"
 #import "PKTTask.h"
 #import "PKTTaskScheduler.h"
+#import "PKTAppDelegate.h"
 
 NSString *kCellID = @"cellID";                          // UICollectionViewCell storyboard id
 
@@ -33,17 +34,11 @@ NSString *kCellID = @"cellID";                          // UICollectionViewCell 
     [super viewDidLoad];
     // Do any additional setup after loading the view, typically from a nib.
     [self.collectionView setAlwaysBounceVertical:YES];
-    NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
-    self.tasks = [[NSMutableArray alloc] init];
-    id tasklist = [defaults objectForKey:@"packt_list"];
-    if(tasklist) {
-        for (NSDictionary *dict in tasklist) {
-            PKTTask *task = [[PKTTask alloc] init];
-            task.title = [dict objectForKey:@"title"];
-            task.length = [[dict objectForKey:@"length"] integerValue];
-            [self.tasks addObject:task];
-        }
+    self.tasks = [self getTasksFromDelegate];
+    if (!self.tasks) {
+        self.tasks = [[NSMutableArray alloc] init];
     }
+    [self.collectionView reloadData];
     self.scheduler = [[PKTTaskScheduler alloc] init];
     self.isCreatingTask = NO;
 }
@@ -118,15 +113,7 @@ NSString *kCellID = @"cellID";                          // UICollectionViewCell 
 }
 - (void)viewWillDisappear:(BOOL)animated
 {
-    NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
-    NSMutableArray *defsArray = [[NSMutableArray alloc] init];
-    id tasklist = [defaults objectForKey:@"packt_list"];
-    if(tasklist) {
-        for (PKTTask *task in self.tasks) {
-            [defsArray addObject: [task dictionaryRepresentation]];
-        }
-        tasklist = [NSArray arrayWithArray:defsArray];
-    }
+    [self sendTasksToDelegate];
 }
 - (IBAction)swipedOnTask:(id)sender {
     //STUB: Do something when the task gets swiped
@@ -140,6 +127,13 @@ NSString *kCellID = @"cellID";                          // UICollectionViewCell 
     
 }
 
-
+- (void) sendTasksToDelegate {
+    PKTAppDelegate *delegate = [UIApplication sharedApplication].delegate;
+    delegate.taskList = [self.tasks mutableCopy];
+}
+- (NSArray *) getTasksFromDelegate {
+    PKTAppDelegate *delegate = [UIApplication sharedApplication].delegate;
+    return [delegate.taskList mutableCopy];
+}
 
 @end

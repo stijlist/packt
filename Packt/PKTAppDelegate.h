@@ -11,5 +11,5 @@
 @interface PKTAppDelegate : UIResponder <UIApplicationDelegate>
 
 @property (strong, nonatomic) UIWindow *window;
-
+@property (strong, nonatomic) NSArray *taskList;
 @end
