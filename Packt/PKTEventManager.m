@@ -22,7 +22,7 @@
 }
 - (NSArray *)eventsForCurrentDay
 {
-    
+    // TODO: call requestAccessToCalendarEvents if access hasn't yet been granted
     __block NSMutableArray *results = [[NSMutableArray alloc] init];
     // store events in NSArray, sequentially
     EKEventStore *store = [[EKEventStore alloc] init];
@@ -49,25 +49,6 @@
         [results addObject: [[PKTCalendarEvent alloc] initWithEKEvent:event]];
     }];
 
-    return results;
-}
-
-// TODO: remove from this class, moved to PKTTaskScheduler
-// precondition: events are ordered in the correct sequence
-// how to deal with overlapping events?
-- (NSArray *)openTimeIntervalsBetweenEventsInArray:(NSArray *)events
-{
-    NSMutableArray *results = [[NSMutableArray alloc] init];
-    EKEvent *lastEvent;
-    for (EKEvent *event in events) {
-        if (lastEvent) {
-            PKTInterval *interval = [[PKTInterval alloc] init];
-            interval.startTime = lastEvent.endDate;
-            interval.interval = [event.startDate timeIntervalSinceDate: lastEvent.endDate];
-            [results addObject: interval];
-        }
-        lastEvent = event;
-    }
     return results;
 }
 @end

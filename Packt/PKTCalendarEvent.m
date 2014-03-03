@@ -7,6 +7,10 @@
 //
 
 #import "PKTCalendarEvent.h"
+#import <EventKit/EventKit.h>
+@interface PKTCalendarEvent ()
+@property EKEvent *event;
+@end
 
 @implementation PKTCalendarEvent
 - (PKTCalendarEvent *)initWithEKEvent:(EKEvent *)event
@@ -38,5 +42,11 @@
     NSDateComponents *eventEndComponents = [currentCalendar components:NSHourCalendarUnit fromDate:[self.event endDate]];
     
     return [eventEndComponents hour] - [eventStartComponents hour];
+}
+- (NSDate *)startDate {
+    return self.event.startDate;
+}
+- (NSDate *)endDate {
+    return self.event.endDate;
 }
 @end

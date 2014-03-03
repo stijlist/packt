@@ -18,6 +18,8 @@
 
 @implementation CalendarViewController
 
+// - (void)schedule button pressed
+
 - (void)viewDidLoad
 {
     [super viewDidLoad];
@@ -38,6 +40,5 @@
         }
     };
 }
-
 
 @end

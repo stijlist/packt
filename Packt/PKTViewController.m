@@ -132,7 +132,7 @@ NSString *kCellID = @"cellID";                          // UICollectionViewCell 
     PKTAppDelegate *delegate = [UIApplication sharedApplication].delegate;
     delegate.taskList = [self.tasks mutableCopy];
 }
-- (NSArray *) getTasksFromDelegate {
+- (NSMutableArray *) getTasksFromDelegate {
     PKTAppDelegate *delegate = [UIApplication sharedApplication].delegate;
     return [delegate.taskList mutableCopy];
 }

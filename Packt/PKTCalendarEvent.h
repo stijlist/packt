@@ -11,6 +11,10 @@
 #import <EventKit/EventKit.h>
 
 @interface PKTCalendarEvent : NSObject <CalendarEvent>
-@property (strong, nonatomic) EKEvent *event;
+//TODO: should we avoid explicitly importing EKEvent here?
 - (PKTCalendarEvent *) initWithEKEvent:(EKEvent *) event;
+- (NSDate *)startDate;
+- (NSDate *)endDate;
+
+
 @end

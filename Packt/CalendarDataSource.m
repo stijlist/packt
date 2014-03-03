@@ -6,12 +6,10 @@
 //  Copyright (c) 2013 Ole Begemann. All rights reserved.
 //
 
+#import "PKTAppDelegate.h"
 #import "CalendarDataSource.h"
 #import "PKTEventManager.h"
 #import "PKTTaskScheduler.h"
-#import "PKTScheduledTask.h"
-#import "PKTInterval.h"
-#import "PKTTask.h"
 
 @interface CalendarDataSource ()
 @property (strong, nonatomic) NSMutableArray *events;
@@ -33,15 +31,16 @@
     PKTEventManager *mgr = [[PKTEventManager alloc] init];
     self.events = [[mgr eventsForCurrentDay] mutableCopy];
 }
-
+- (NSArray *)getTasksToScheduleFromAppDelegate
+{
+    PKTAppDelegate *delegate = [UIApplication sharedApplication].delegate;
+    return delegate.taskList;
+}
 - (void)awakeFromNib
 {
     _events = [[NSMutableArray alloc] init];
     _scheduler = [[PKTTaskScheduler alloc] init];
-    // Prepare some example events
-    // In a real app, these should be retrieved from the calendar data store (EventKit.framework)
-    // We use a very simple data format for our events. In a real calendar app, event times should be
-    // represented with NSDate objects and correct calendrical date calculcations should be used.
+
     [self getUserEventsFromCalendar];
 }
 
