@@ -39,6 +39,7 @@ NSString *kCellID = @"cellID";                          // UICollectionViewCell 
         self.tasks = [[NSMutableArray alloc] init];
     }
     [self.collectionView reloadData];
+    [self.collectionView reloadItemsAtIndexPaths:[self.collectionView indexPathsForVisibleItems]];
     self.scheduler = [[PKTTaskScheduler alloc] init];
     self.isCreatingTask = NO;
 }
