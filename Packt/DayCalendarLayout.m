@@ -14,6 +14,7 @@ static const NSUInteger DaysPerWeek = 7;
 static const NSUInteger HoursPerDay = 24;
 static const CGFloat HorizontalSpacing = 10;
 static const CGFloat HeightPerHour = 50;
+static const CGFloat HeightPerMinute = HeightPerHour / 60;
 static const CGFloat HourHeaderWidth = 100;
 
 @interface DayCalendarLayout ()
@@ -134,9 +135,9 @@ static const CGFloat HourHeaderWidth = 100;
 
     CGRect frame = CGRectZero;
     frame.origin.x = HourHeaderWidth;
-    frame.origin.y = HeightPerHour * event.startHour;
+    frame.origin.y = HeightPerMinute * event.startMinute;
     frame.size.width = widthPerDay;
-    frame.size.height = event.durationInHours * HeightPerHour;
+    frame.size.height = event.durationInMinutes * HeightPerMinute;
     
     frame = CGRectInset(frame, HorizontalSpacing/2.0, 0);
     return frame;
