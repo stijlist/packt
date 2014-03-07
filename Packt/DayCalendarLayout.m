@@ -86,15 +86,13 @@ static const CGFloat HourHeaderWidth = 100;
 
 - (NSArray *)indexPathsOfItemsInRect:(CGRect)rect
 {
-    NSInteger minVisibleDay = [self dayIndexFromXCoordinate:CGRectGetMinX(rect)];
-    NSInteger maxVisibleDay = [self dayIndexFromXCoordinate:CGRectGetMaxX(rect)];
     NSInteger minVisibleHour = [self hourIndexFromYCoordinate:CGRectGetMinY(rect)];
     NSInteger maxVisibleHour = [self hourIndexFromYCoordinate:CGRectGetMaxY(rect)];
     
 //    NSLog(@"rect: %@, days: %d-%d, hours: %d-%d", NSStringFromCGRect(rect), minVisibleDay, maxVisibleDay, minVisibleHour, maxVisibleHour);
     
     CalendarDataSource *dataSource = self.collectionView.dataSource;
-    NSArray *indexPaths = [dataSource indexPathsOfEventsBetweenMinDayIndex:minVisibleDay maxDayIndex:maxVisibleDay minStartHour:minVisibleHour maxStartHour:maxVisibleHour];
+    NSArray *indexPaths = [dataSource indexPathsOfEventsBetweenMinStartHour:minVisibleHour maxStartHour:maxVisibleHour];
     return indexPaths;
 }
 

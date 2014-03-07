@@ -54,7 +54,7 @@
     return self.events[indexPath.item];
 }
 
-- (NSArray *)indexPathsOfEventsBetweenMinDayIndex:(NSInteger)minDayIndex maxDayIndex:(NSInteger)maxDayIndex minStartHour:(NSInteger)minStartHour maxStartHour:(NSInteger)maxStartHour
+- (NSArray *)indexPathsOfEventsBetweenMinStartHour:(NSInteger)minStartHour maxStartHour:(NSInteger)maxStartHour
 {
     NSMutableArray *indexPaths = [NSMutableArray array];
     [self.events enumerateObjectsUsingBlock:^(id event, NSUInteger idx, BOOL *stop) {

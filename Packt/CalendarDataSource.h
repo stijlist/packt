@@ -20,7 +20,7 @@ typedef void (^ConfigureHeaderViewBlock)(HeaderView *headerView, NSString *kind,
 @property (copy, nonatomic) ConfigureHeaderViewBlock configureHeaderViewBlock;
 
 - (id<CalendarEvent>)eventAtIndexPath:(NSIndexPath *)indexPath;
-- (NSArray *)indexPathsOfEventsBetweenMinDayIndex:(NSInteger)minDayIndex maxDayIndex:(NSInteger)maxDayIndex minStartHour:(NSInteger)minStartHour maxStartHour:(NSInteger)maxStartHour;
+- (NSArray *)indexPathsOfEventsBetweenMinStartHour:(NSInteger)minStartHour maxStartHour:(NSInteger)maxStartHour;
 
 - (void)scheduleTasks:(NSArray *)tasks;
 
