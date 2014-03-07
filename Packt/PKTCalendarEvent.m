@@ -54,15 +54,9 @@
 - (NSInteger)durationInMinutes
 {
     NSCalendar *currentCalendar = [NSCalendar currentCalendar];
-    NSDateComponents *eventStartComponents = [currentCalendar components:(NSHourCalendarUnit|NSMinuteCalendarUnit)
-                                                                fromDate:[self.event startDate]];
-    NSDateComponents *eventEndComponents = [currentCalendar components:NSHourCalendarUnit fromDate:[self.event endDate]];
-    // this doesn't work:
-    /* return (([eventEndComponents hour]*60) + [eventEndComponents minute]) - (([eventStartComponents hour]*60) + [eventStartComponents minute]);
-
-     */
-    // but this does? what does the eventStart components minute call do?
-    return (([eventEndComponents hour]*60) + [eventEndComponents minute]) - (([eventStartComponents hour]*60) + [eventStartComponents minute]);
+    NSDateComponents *eventDurationComponents = [currentCalendar components:(NSHourCalendarUnit|NSMinuteCalendarUnit) fromDate:[self.event startDate] toDate:[self.event endDate] options:0];
+    
+    return ([eventDurationComponents hour]*60) + [eventDurationComponents minute];
 }
 
 - (NSDate *)startDate {
