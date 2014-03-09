@@ -25,9 +25,9 @@
         for (PKTInterval *interval in intervals) {
             // if the task can be scheduled, schedule and stop searching
             if([interval scheduleTask:task]) {
+                PKTScheduledTask *scheduledTask = [[PKTScheduledTask alloc] initWithStartDate:interval.startTime andTimeInterval:interval.interval];
+                [results addObject:scheduledTask];
                 break;
-                PKTScheduledTask *scheduledTask = [[PKTScheduledTask alloc] init];
-                [results addObject:[scheduledTask initWithStartDate:interval.startTime andTimeInterval:interval.interval]];
             }
         }
     }
@@ -41,9 +41,8 @@
     PKTCalendarEvent *lastEvent;
     for (PKTCalendarEvent *event in events) {
         if (lastEvent) {
-            PKTInterval *interval = [[PKTInterval alloc] init];
-            interval.startTime = lastEvent.endDate;
-            interval.interval = [event.startDate timeIntervalSinceDate: lastEvent.endDate];
+            PKTInterval *interval = [[PKTInterval alloc] initWithStartTime:lastEvent.endDate
+                                                               andInterval:[event.startDate timeIntervalSinceDate: lastEvent.endDate]];
             [results addObject: interval];
         }
         lastEvent = event;

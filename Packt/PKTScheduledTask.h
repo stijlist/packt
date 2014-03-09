@@ -10,6 +10,7 @@
 #import "CalendarEvent.h"
 
 @interface PKTScheduledTask : NSObject <CalendarEvent>
--(PKTScheduledTask *)initWithStartDate:(NSDate *)startDate andTimeInterval:(NSTimeInterval)timeInterval;
+
+-(id)initWithStartDate:(NSDate *)startDate andTimeInterval:(NSTimeInterval)timeInterval;
 
 @end

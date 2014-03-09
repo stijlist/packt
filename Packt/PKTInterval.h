@@ -11,8 +11,10 @@
 
 @interface PKTInterval : NSObject
 @property NSTimeInterval interval;
-@property double remainingTime;
+@property NSTimeInterval remainingTime;
 @property NSDate *startTime;
 @property NSArray *tasksScheduled;
 - (BOOL)scheduleTask:(PKTTask *) task;
+- (id) initWithStartTime:(NSDate *)startTime andInterval:(NSTimeInterval)interval;
+
 @end

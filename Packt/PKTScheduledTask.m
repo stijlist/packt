@@ -9,16 +9,21 @@
 #import "PKTScheduledTask.h"
 
 @implementation PKTScheduledTask
+@synthesize startMinute = _startMinute;
+@synthesize durationInMinutes = _durationInMinutes;
+@synthesize title = _title;
+@synthesize startHour = _startHour;
+@synthesize durationInHours = _durationInHours;
 
--(PKTScheduledTask *)initWithStartDate:(NSDate *)startDate andTimeInterval:(NSTimeInterval)timeInterval;
+-(id)initWithStartDate:(NSDate *)startDate andTimeInterval:(NSTimeInterval)timeInterval;
 {
     
     NSCalendar *currentCalendar = [NSCalendar currentCalendar];
-    NSDateComponents *eventStartComponents = [currentCalendar components:(NSHourCalendarUnit)
+    NSDateComponents *eventStartComponents = [currentCalendar components:(NSHourCalendarUnit|NSMinuteCalendarUnit)
                                                                 fromDate:startDate];
     
-    self.startHour = [eventStartComponents hour];
-    self.durationInHours = (NSUInteger)(timeInterval / (60 * 60)); // (time interval in seconds) / (seconds in an hour)
+    _startMinute = [eventStartComponents hour]*60 + [eventStartComponents minute];
+    _durationInMinutes = (NSUInteger)(timeInterval / 60); // (time interval in seconds) / (seconds in an minute)
     return self;
 }
 @end

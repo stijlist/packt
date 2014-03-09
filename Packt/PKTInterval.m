@@ -9,6 +9,17 @@
 #import "PKTInterval.h"
 
 @implementation PKTInterval
+- (id) initWithStartTime:(NSDate *)startTime andInterval:(NSTimeInterval)interval
+{
+    self = [super init];
+    if (self) {
+        _startTime = startTime;
+        _interval = interval;
+        _remainingTime = interval;
+        _tasksScheduled = [[NSArray alloc] init];
+    }
+    return self;
+}
 - (BOOL)scheduleTask:(PKTTask *)task {
     if (self.remainingTime >= task.timeInterval) {
         NSMutableArray *arr = [self.tasksScheduled mutableCopy];
