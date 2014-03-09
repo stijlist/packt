@@ -12,7 +12,7 @@
 
 @interface PKTCalendarEvent : NSObject <CalendarEvent>
 //TODO: should we avoid explicitly importing EKEvent here?
-- (PKTCalendarEvent *) initWithEKEvent:(EKEvent *) event;
+- (id) initWithEKEvent:(EKEvent *) event;
 - (NSDate *)startDate;
 - (NSDate *)endDate;
 

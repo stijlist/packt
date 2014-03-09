@@ -54,11 +54,24 @@
     return self.events[indexPath.item];
 }
 
-- (NSArray *)indexPathsOfEventsBetweenMinStartHour:(NSInteger)minStartHour maxStartHour:(NSInteger)maxStartHour
+//- (NSArray *)indexPathsOfEventsBetweenMinStartHour:(NSInteger)minStartHour maxStartHour:(NSInteger)maxStartHour
+//{
+//    NSMutableArray *indexPaths = [NSMutableArray array];
+//    [self.events enumerateObjectsUsingBlock:^(id event, NSUInteger idx, BOOL *stop) {
+//        if ([event startHour] >= minStartHour && [event startHour] <= maxStartHour)
+//        {
+//            NSIndexPath *indexPath = [NSIndexPath indexPathForItem:idx inSection:0];
+//            [indexPaths addObject:indexPath];
+//        }
+//    }];
+//    return indexPaths;
+//}
+
+- (NSArray *)indexPathsOfEventsBetweenMinStartMinute:(NSInteger)minStartMinute maxStartMinute:(NSInteger)maxStartMinute
 {
     NSMutableArray *indexPaths = [NSMutableArray array];
     [self.events enumerateObjectsUsingBlock:^(id event, NSUInteger idx, BOOL *stop) {
-        if ([event startHour] >= minStartHour && [event startHour] <= maxStartHour)
+        if ([event startMinute] >= minStartMinute && [event startMinute] <= maxStartMinute)
         {
             NSIndexPath *indexPath = [NSIndexPath indexPathForItem:idx inSection:0];
             [indexPaths addObject:indexPath];

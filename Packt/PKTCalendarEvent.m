@@ -13,11 +13,11 @@
 @end
 
 @implementation PKTCalendarEvent
-- (PKTCalendarEvent *)initWithEKEvent:(EKEvent *)event
+- (id)initWithEKEvent:(EKEvent *)event
 {
     self = [super init];
     if (self) {
-        self.event = event;
+        _event = event;
     }
 
     return self;
@@ -25,23 +25,6 @@
 - (NSString *)title
 {
     return self.event.title;
-}
-- (NSInteger)startHour
-{
-    NSCalendar *currentCalendar = [NSCalendar currentCalendar];
-    NSDateComponents *eventStartComponents = [currentCalendar components:(NSHourCalendarUnit)
-                                                           fromDate:[self.event startDate]];
-    
-    return [eventStartComponents hour];
-}
-- (NSInteger)durationInHours
-{
-    NSCalendar *currentCalendar = [NSCalendar currentCalendar];
-    NSDateComponents *eventStartComponents = [currentCalendar components:(NSHourCalendarUnit)
-                                                           fromDate:[self.event startDate]];
-    NSDateComponents *eventEndComponents = [currentCalendar components:NSHourCalendarUnit fromDate:[self.event endDate]];
-    
-    return [eventEndComponents hour] - [eventStartComponents hour];
 }
 - (NSInteger)startMinute
 {

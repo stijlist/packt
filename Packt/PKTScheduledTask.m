@@ -12,8 +12,6 @@
 @synthesize startMinute = _startMinute;
 @synthesize durationInMinutes = _durationInMinutes;
 @synthesize title = _title;
-@synthesize startHour = _startHour;
-@synthesize durationInHours = _durationInHours;
 
 -(id)initWithStartDate:(NSDate *)startDate andTimeInterval:(NSTimeInterval)timeInterval;
 {
