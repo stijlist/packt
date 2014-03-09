@@ -13,7 +13,7 @@
 @synthesize durationInMinutes = _durationInMinutes;
 @synthesize title = _title;
 
--(id)initWithStartDate:(NSDate *)startDate andTimeInterval:(NSTimeInterval)timeInterval;
+-(id)initWithStartDate:(NSDate *)startDate timeInterval:(NSTimeInterval)timeInterval andTitle:(NSString *)title
 {
     
     NSCalendar *currentCalendar = [NSCalendar currentCalendar];
@@ -22,6 +22,7 @@
     
     _startMinute = [eventStartComponents hour]*60 + [eventStartComponents minute];
     _durationInMinutes = (NSUInteger)(timeInterval / 60); // (time interval in seconds) / (seconds in an minute)
+    _title = title;
     return self;
 }
 @end

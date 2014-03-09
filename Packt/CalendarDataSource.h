@@ -23,6 +23,6 @@ typedef void (^ConfigureHeaderViewBlock)(HeaderView *headerView, NSString *kind,
 //- (NSArray *)indexPathsOfEventsBetweenMinStartHour:(NSInteger)minStartHour maxStartHour:(NSInteger)maxStartHour;
 - (NSArray *)indexPathsOfEventsBetweenMinStartMinute:(NSInteger)minStartMinute maxStartMinute:(NSInteger)maxStartMinute;
 
-- (void)scheduleTasks:(NSArray *)tasks;
+- (void)scheduleTasks;
 
 @end

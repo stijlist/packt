@@ -39,6 +39,7 @@
             headerView.titleLabel.text = [NSString stringWithFormat:@"%2d:00", indexPath.item % 12 + 1];
         }
     };
+    [dataSource scheduleTasks];
 }
 
 @end

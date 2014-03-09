@@ -25,7 +25,7 @@
         for (PKTInterval *interval in intervals) {
             // if the task can be scheduled, schedule and stop searching
             if([interval scheduleTask:task]) {
-                PKTScheduledTask *scheduledTask = [[PKTScheduledTask alloc] initWithStartDate:interval.startTime andTimeInterval:interval.interval];
+                PKTScheduledTask *scheduledTask = [[PKTScheduledTask alloc] initWithStartDate:interval.startTime timeInterval:interval.interval andTitle:task.title];
                 [results addObject:scheduledTask];
                 break;
             }
@@ -35,6 +35,10 @@
     
 }
 
+// TODO: refactor to use CalendarEvent protocol instead of EKEvents
+// by doing this, we can remove the stored array of PKTTimeIntervals in CalendarDataSource,
+// stop storing scheduled tasks as properties of a PKTTimeInterval object, and call this method
+// with a mixed array of calendarEvents, both PKTScheduledTasks and PKTCalendarEvents
 - (NSArray *)openTimeIntervalsBetweenEventsInArray:(NSArray *)events
 {
     NSMutableArray *results = [[NSMutableArray alloc] init];

@@ -20,8 +20,9 @@
 
 @implementation CalendarDataSource
 
-- (void)scheduleTasks:(NSArray *)tasks
+- (void)scheduleTasks
 {
+    NSArray *tasks = [self getTasksFromAppDelegate];
     self.openIntervals = [self.scheduler openTimeIntervalsBetweenEventsInArray:self.events];
     [self.events addObjectsFromArray:[self.scheduler packTasks:tasks intoIntervals:self.openIntervals]];
 }
@@ -31,7 +32,7 @@
     PKTEventManager *mgr = [[PKTEventManager alloc] init];
     self.events = [[mgr eventsForCurrentDay] mutableCopy];
 }
-- (NSArray *)getTasksToScheduleFromAppDelegate
+- (NSArray *)getTasksFromAppDelegate
 {
     PKTAppDelegate *delegate = [UIApplication sharedApplication].delegate;
     return delegate.taskList;
@@ -53,19 +54,6 @@
 {
     return self.events[indexPath.item];
 }
-
-//- (NSArray *)indexPathsOfEventsBetweenMinStartHour:(NSInteger)minStartHour maxStartHour:(NSInteger)maxStartHour
-//{
-//    NSMutableArray *indexPaths = [NSMutableArray array];
-//    [self.events enumerateObjectsUsingBlock:^(id event, NSUInteger idx, BOOL *stop) {
-//        if ([event startHour] >= minStartHour && [event startHour] <= maxStartHour)
-//        {
-//            NSIndexPath *indexPath = [NSIndexPath indexPathForItem:idx inSection:0];
-//            [indexPaths addObject:indexPath];
-//        }
-//    }];
-//    return indexPaths;
-//}
 
 - (NSArray *)indexPathsOfEventsBetweenMinStartMinute:(NSInteger)minStartMinute maxStartMinute:(NSInteger)maxStartMinute
 {

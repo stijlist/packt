@@ -11,6 +11,6 @@
 
 @interface PKTScheduledTask : NSObject <CalendarEvent>
 
--(id)initWithStartDate:(NSDate *)startDate andTimeInterval:(NSTimeInterval)timeInterval;
+-(id)initWithStartDate:(NSDate *)startDate timeInterval:(NSTimeInterval)timeInterval andTitle:(NSString *)title;
 
 @end
