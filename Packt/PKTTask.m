@@ -18,4 +18,13 @@
 {
     return @{@"title": self.title, @"length": [NSNumber numberWithInt: self.length]};
 }
+- (id) initFromDictionary:(NSDictionary *)dict
+{
+    self = [super init];
+    if (self) {
+        self.length = [(NSNumber *)[dict objectForKey:@"length"] integerValue];
+        self.title = (NSString *)[dict objectForKey:@"title"];
+    }
+    return self;
+}
 @end

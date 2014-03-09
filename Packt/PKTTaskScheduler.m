@@ -19,7 +19,7 @@
     NSMutableArray *results = [[NSMutableArray alloc] init];
     // *** implementation of first fit decreasing bin packing algorithm
     // sort tasks by estimated time interval required
-    NSArray *sortedTasks = [tasks sortedArrayUsingSelector:NSSelectorFromString(@"interval")];
+    NSArray *sortedTasks = [tasks sortedArrayUsingSelector:NSSelectorFromString(@"timeInterval")];
     
     for(PKTTask *task in sortedTasks.reverseObjectEnumerator) {
         for (PKTInterval *interval in intervals) {

@@ -12,6 +12,8 @@
 
 @property NSString *title;
 @property NSUInteger length;
+
 - (NSTimeInterval) timeInterval;
 - (NSDictionary *) dictionaryRepresentation;
+- (id) initFromDictionary:(NSDictionary *)dict;
 @end

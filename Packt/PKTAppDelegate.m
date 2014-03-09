@@ -8,6 +8,7 @@
 
 #import "PKTAppDelegate.h"
 #import "PKTEventManager.h"
+#import "PKTTask.h"
 
 @implementation PKTAppDelegate
 
@@ -16,6 +17,7 @@
     if (self) {
         _taskList = [[NSMutableArray alloc] init];
     }
+    NSLog(@"%@", [[[NSUserDefaults standardUserDefaults] dictionaryRepresentation] allKeys]);
     return self;
 }
 
@@ -23,6 +25,7 @@
 {
     // Override point for customization after application launch.
     // load data
+    [self loadTasks];
     return YES;
 }
 							
@@ -36,6 +39,7 @@
 {
     // Use this method to release shared resources, save user data, invalidate timers, and store enough application state information to restore your application to its current state in case it is terminated later. 
     // If your application supports background execution, this method is called instead of applicationWillTerminate: when the user quits.
+    [self persistTasks];
 }
 
 - (void)applicationWillEnterForeground:(UIApplication *)application
@@ -46,14 +50,40 @@
 - (void)applicationDidBecomeActive:(UIApplication *)application
 {
     // Restart any tasks that were paused (or not yet started) while the application was inactive. If the application was previously in the background, optionally refresh the user interface.
-    PKTEventManager *em = [[PKTEventManager alloc] init];
-    [em eventsForCurrentDay];
-    
 }
 
 - (void)applicationWillTerminate:(UIApplication *)application
 {
     // Called when the application is about to terminate. Save data if appropriate. See also applicationDidEnterBackground:.
+    [self persistTasks];
 }
-
+- (void)persistTasks
+{
+    NSUserDefaults *defs = [NSUserDefaults standardUserDefaults];
+    [defs setObject:[self taskListDictionaryRepresentation] forKey:@"tasks"];
+    [defs synchronize];
+    NSLog(@"Tasks saved!");
+}
+- (void)loadTasks
+{
+    NSUserDefaults *defs = [NSUserDefaults standardUserDefaults];
+    NSArray *tasksLoaded = [defs arrayForKey:@"tasks"];
+    NSMutableArray *tasks = [[NSMutableArray alloc] init];
+    if (tasksLoaded) {
+        for (NSDictionary *dict in tasksLoaded) {
+            PKTTask *task = [[PKTTask alloc] initFromDictionary:dict];
+            [tasks addObject:task];
+        }
+        self.taskList = tasks;
+        NSLog(@"Tasks loaded!");
+    }
+}
+- (NSArray *)taskListDictionaryRepresentation
+{
+    NSMutableArray *results = [[NSMutableArray alloc] init];
+    for (PKTTask *task in self.taskList) {
+        [results addObject:[task dictionaryRepresentation]];
+    }
+    return results;
+}
 @end
