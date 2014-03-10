@@ -24,6 +24,12 @@ NSString *kCellID = @"cellID";                          // UICollectionViewCell 
 @end
 
 @implementation PKTViewController
+- (IBAction)deleteTask:(id)sender {
+    UIButton *deleteButton = (UIButton *)sender;
+    NSIndexPath *indexPath = [self.collectionView indexPathForItemAtPoint:[self.collectionView convertPoint:deleteButton.center fromView:deleteButton.superview]];
+    [self.tasks removeObjectAtIndex:indexPath.row];
+    [self.collectionView deleteItemsAtIndexPaths:@[indexPath]];
+}
 
 - (NSInteger)collectionView:(UICollectionView *)asker numberOfItemsInSection:(NSInteger)section
 {
@@ -78,7 +84,7 @@ NSString *kCellID = @"cellID";                          // UICollectionViewCell 
     self.navigationItem.rightBarButtonItem.enabled = YES;
 
     
-    if([[taskCell title].text length] == 0) {
+    if([[taskCell title].text length] == 0 || task.length == 0) {
         NSArray *indexPaths = [NSArray arrayWithObject:[self.collectionView indexPathForCell:taskCell]];
         [self.tasks removeObjectAtIndex:0];
         [self.collectionView deleteItemsAtIndexPaths:indexPaths];
