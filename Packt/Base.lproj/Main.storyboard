@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="4514" systemVersion="13C64" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" initialViewController="cdv-ea-T6S">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="5053" systemVersion="13C64" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" initialViewController="cdv-ea-T6S">
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="3747"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="3733"/>
     </dependencies>
     <scenes>
         <!--Navigation Controller-->
@@ -119,7 +119,7 @@
                                                 <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                             </state>
                                             <connections>
-                                                <action selector="deleteTask:" destination="cbF-Fu-s6B" eventType="touchUpInside" id="RKJ-nV-1Kr"/>
+                                                <action selector="deleteButtonPressed:" destination="Mbg-qF-gIo" eventType="touchUpInside" id="z0H-xO-4YL"/>
                                             </connections>
                                         </button>
                                     </subviews>
@@ -131,7 +131,6 @@
                                 <connections>
                                     <outlet property="timeInterval" destination="lOt-gG-xzT" id="g3N-Xw-4vN"/>
                                     <outlet property="title" destination="j9p-XI-1xo" id="oVl-Vq-9pm"/>
-                                    <outletCollection property="gestureRecognizers" destination="UpU-Ke-dB2" appends="YES" id="uES-DR-lhN"/>
                                 </connections>
                             </collectionViewCell>
                         </cells>
@@ -147,16 +146,8 @@
                             </connections>
                         </barButtonItem>
                     </navigationItem>
-                    <connections>
-                        <outlet property="deleteTask" destination="Kuv-zT-5FD" id="GLK-eZ-yxr"/>
-                    </connections>
                 </collectionViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="nEb-7g-UHc" userLabel="First Responder" sceneMemberID="firstResponder"/>
-                <swipeGestureRecognizer direction="right" id="UpU-Ke-dB2">
-                    <connections>
-                        <action selector="swipedOnTask:" destination="cbF-Fu-s6B" id="VJ2-xw-8gJ"/>
-                    </connections>
-                </swipeGestureRecognizer>
             </objects>
             <point key="canvasLocation" x="1231" y="-432"/>
         </scene>

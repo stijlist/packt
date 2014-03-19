@@ -7,7 +7,7 @@
 //
 
 #import "PKTTaskCell.h"
-
+#import "PKTViewController.h"
 @implementation PKTTaskCell
 
 - (id)initWithFrame:(CGRect)frame
@@ -17,6 +17,17 @@
         // Initialization code
     }
     return self;
+}
+
+// TODO: this code DEFINITELY shouldn't be in here
+// ideas:
+// - make a delegate protocol for PKTTask cell
+// - implement more iOS-style 2 step swipe to reveal delete button / press delete button flow
+- (IBAction)deleteButtonPressed:(id)sender {
+    UICollectionView *sup = (UICollectionView *)[self superview];
+    NSArray *indexPaths = @[[sup indexPathForCell:self]];
+    // ugh this cast is the literal worst
+    [(PKTViewController *)[sup dataSource] deleteItemsAtIndexPaths: indexPaths];
 }
 
 /*

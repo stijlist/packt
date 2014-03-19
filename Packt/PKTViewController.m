@@ -55,6 +55,14 @@ NSString *kCellID = @"cellID";                          // UICollectionViewCell 
     return YES;
 }
 
+- (void)deleteItemsAtIndexPaths:(NSArray *)indexPaths
+{
+    for (NSIndexPath *path in indexPaths) {
+        [self.tasks removeObjectAtIndex:path.row];
+    }
+    [self.collectionView deleteItemsAtIndexPaths:indexPaths];
+}
+
 - (UICollectionViewCell *)collectionView:(UICollectionView *)cv cellForItemAtIndexPath:(NSIndexPath *)indexPath;
 {
     PKTTaskCell *cell = [cv dequeueReusableCellWithReuseIdentifier:kCellID forIndexPath:indexPath];

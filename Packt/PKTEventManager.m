@@ -27,7 +27,10 @@
     // store events in NSArray, sequentially
     EKEventStore *store = [[EKEventStore alloc] init];
 
-    
+    if (![EKEventStore authorizationStatusForEntityType:EKEntityTypeEvent]) {
+        [self requestAccessToCalendarEvents];
+    }
+
     EKCalendar *calendar = store.defaultCalendarForNewEvents;
     // get all events matching today
     NSDate *today = [[NSDate alloc] init];
