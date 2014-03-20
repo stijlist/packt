@@ -18,6 +18,10 @@
     }
     return self;
 }
+- (IBAction)didBeginEditingTimeField:(UITextField *)sender {
+    // TODO: this clobbers styling information, let's fix this soon
+    sender.text = @"";
+}
 
 // TODO: this code DEFINITELY shouldn't be in here
 // ideas:
